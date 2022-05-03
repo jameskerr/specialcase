@@ -56,7 +56,7 @@ This means these two lines result in the same thing.
 When in doubt, console.log it out.
 
 ```jsx
-const MyButton = forwardRef(function MyButton(props, ref) {
+const MyButton = forwardRef(function(props, ref) {
   console.log(ref)
   ...
 })
@@ -85,7 +85,7 @@ Ok, this is starting to make sense. Whatever you pass as the _ref_ prop to the _
 
 ```jsx
 <MyButton ref={ref} /> // this ref is the same as...
-forwardRef(function MyButton(props, ref) {}) // ...this ref
+forwardRef(function(props, ref) {}) // ...this ref
 ```
 
 The name "_forwardRef_" is starting to make a lot of sense. Let's test this out by passing a function as the _ref_ property.
@@ -96,7 +96,7 @@ const func = (node) => console.log("Hi")
 
 /* prints */
 '(node) => console.log("Hi")'
-// the string representation of the function
+/* the string representation of the function */
 
 ```
 
@@ -105,7 +105,7 @@ const func = (node) => console.log("Hi")
 So to deliver on the promise of this blog's title, here's how we can have _useRef_ and _forwardRef_ in the same function component.
 
 ```jsx
-const MyButton = forwardRef(function MyButton(props, forwardedRef) {
+const MyButton = forwardRef(function(props, forwardedRef) {
   const localRef = useRef()
 
   return (
@@ -148,7 +148,7 @@ function mergeRefs(...refs) {
 To be used like this:
 
 ```jsx
-const MyButton = forwardRef(function MyButton(props, forwardedRef) {
+const MyButton = forwardRef(function(props, forwardedRef) {
   const localRef = useRef()
 
   return <button ref={mergeRefs(localRef, forwardedRef)} />

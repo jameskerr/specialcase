@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #ff1a38;
+  --primary-color: hsl(5, 100%, 55%);
   --link-color: var(--primary-color);
   --body-color: hsl(352 87% 10%);
   --pre-background-color: hsl(352 87% 10% / 0.04);
@@ -82,7 +82,7 @@ h1 {
 }
 
 .post-title {
-  margin-top: 4rem;
+  margin-top: 2rem;
   margin-bottom: 3rem;
 }
 
@@ -93,23 +93,30 @@ a {
 }
 
 .wrap {
-  max-width: 620px;
+  max-width: 630px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
 body {
-  font-size: 20px;
+  font-size: 22px;
   display: flex;
   flex-direction: column;
 }
 
 .title {
   font-family: bely-display;
-  font-size: 3rem;
   box-shadow: none;
   color: var(--body-color);
   display: flex;
   align-items: center;
+  margin-top: 3rem;
+}
+
+.title h1 {
+  line-height: 1.2;
+  font-size: 3rem;
+  letter-spacing: 2px;
 }
 
 .title svg {
@@ -122,24 +129,31 @@ body {
   fill: var(--body-color);
 }
 
-@keyframes special-fade {
-  from {
-    fill: var(--body-color);
-  }
-
-  to {
-    fill: var(--primary-color);
-  }
-}
 
 .title #special {
-  animation: special-fade 1s ease-in-out 1s forwards;
+  fill: var(--primary-color)
 }
 
 .tagline {
   margin-top: 1rem;
-  margin-left: 6rem;
+  margin-left: 3.5rem;
 }
+
+@media screen and (max-width: 450px) {
+  .title h1 {
+    font-size: 2.4rem;
+  }
+
+  .title svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .tagline {
+    margin-left: 0rem;
+  }
+}
+
 
 header {
   padding: 2rem 0;
@@ -190,6 +204,11 @@ code {
   font-size: 1rem;
   background-color: var(--pre-background-color) !important;
   padding: 0 0.5rem;
+}
+
+pre>code {
+  padding: 0;
+  background-color: none;
 }
 
 article h2 {
