@@ -1,0 +1,11 @@
+baseURL: "http://example.org/"
+languageCode: "en-us"
+title: Special Case
+theme: blank
+params:
+  tagline: A Development Blog
+  author: James Kerr
+  twitter: specialCaseDev
+markup:
+  highlight:
+    style: github

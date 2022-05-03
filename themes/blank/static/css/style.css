@@ -1,0 +1,197 @@
+:root {
+  --primary-color: #ff1a38;
+  --link-color: var(--primary-color);
+  --body-color: hsl(352 87% 10%);
+  --pre-background-color: hsl(352 87% 10% / 0.04);
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: bely, sans-serif;
+  color: var(--body-color);
+}
+
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+.post-title {
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+  box-shadow: 0 1px 0 0 currentColor;
+}
+
+.wrap {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+body {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: bely-display;
+  font-size: 3rem;
+  box-shadow: none;
+  color: var(--body-color);
+  display: flex;
+  align-items: center;
+}
+
+.title svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 1rem;
+}
+
+.title path {
+  fill: var(--body-color);
+}
+
+@keyframes special-fade {
+  from {
+    fill: var(--body-color);
+  }
+
+  to {
+    fill: var(--primary-color);
+  }
+}
+
+.title #special {
+  animation: special-fade 1s ease-in-out 1s forwards;
+}
+
+.tagline {
+  margin-top: 1rem;
+  margin-left: 6rem;
+}
+
+header {
+  padding: 2rem 0;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+}
+
+.post-summary {
+  margin-bottom: 3rem;
+}
+
+time {
+  font-size: 1rem;
+}
+
+.post-summary-description {
+  margin: 0.4em 0;
+}
+
+.post-title-link {
+  box-shadow: none;
+  margin-top: 0;
+}
+
+article p,
+article pre {
+  margin-top: 1em;
+}
+
+pre {
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--pre-background-color) !important;
+}
+
+code {
+  font-family: source-code-pro, monospace;
+  font-style: normal;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: var(--pre-background-color) !important;
+  padding: 0 0.5rem;
+}
+
+article h2 {
+  margin-top: 1.2em;
+}
