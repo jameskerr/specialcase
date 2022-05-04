@@ -15,7 +15,9 @@
 	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 	<link rel="stylesheet" href="{{ "css/syntax.css" | relURL }}">
 	<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-
+	
+	{{ template "_internal/twitter_cards.html" . }}
+	<meta name="twitter:card" content="summary" />
 
 	{{ with .OutputFormats.Get "RSS" -}}
 	{{ printf `

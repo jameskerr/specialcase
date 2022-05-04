@@ -3,9 +3,12 @@ languageCode: "en-us"
 title: Special Case
 theme: blank
 params:
+  description: A Development Blog by James Kerr
   tagline: A Development Blog
   author: James Kerr
   twitter: specialCaseDev
+  images:
+    - /img/site-thumbnail-image.jpg
 markup:
   highlight:
     style: github
