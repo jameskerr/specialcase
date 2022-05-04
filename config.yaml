@@ -2,6 +2,8 @@ baseURL: "https://www.specialcase.dev/"
 languageCode: "en-us"
 title: Special Case
 theme: blank
+googleAnalytics: G-D8JVDHTGVB
+
 params:
   description: A Development Blog by James Kerr
   tagline: A Development Blog
@@ -9,6 +11,9 @@ params:
   twitter: specialCaseDev
   images:
     - /img/site-thumbnail-image.jpg
+
 markup:
   highlight:
     style: github
+
+
