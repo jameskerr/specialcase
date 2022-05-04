@@ -1,6 +1,6 @@
 ---
 title: "How to useRef and forwardRef in React"
-date: 2022-04-25T20:44:36-07:00
+date: 2022-05-03T00:00:00-07:00
 draft: false
 description: The short answer is merge the refs into a single ref function. If that's not immediatly obvious, you're like me.
 ---

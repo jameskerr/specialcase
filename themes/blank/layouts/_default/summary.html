@@ -1,6 +1,6 @@
 <article class="post-summary">
 	<h2><a class="post-title-link" href="{{ .Permalink }}">{{ .Title }}</a></h2>
-	<time datetime="{{ .Date.Format " 2006-01-02T15:04:05" }}">{{ .Date.Format "February 1, 2006" }}</time>
+	<time datetime="{{ .Date.Format " 2006-01-02T15:04:05" }}">{{ .Date.Format "January 2, 2006" }}</time>
 	{{ range .Params.tags }}
 	<a href="{{ " /tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
 	{{ end }}
