@@ -1,6 +1,6 @@
 ---
 title: Sharing Steps in Github Action Workflows
-date: 2022-06-03T15:00:00-07:00
+date: 2022-06-13T13:00:00-07:00
 draft: false
 description: |
   I've got three workflow files all with slightly differing steps.
@@ -11,7 +11,7 @@ I've got an [electron app](https://github.com/brimdata/brim) that needs to be bu
 
 ## What is a Composite Action?
 
-The name is weird, but it's a group of steps that are intended to be "used" within a workflow file. This is GitHub's solution for sharing steps between workflows. Here is an example of the simplest composite action. 
+The name is not the most intuitive (why not "shared action"?), but it's a group of steps that are intended to be "used" within a workflow file. This is GitHub's solution for sharing steps between workflows. Here is an example of the simplest composite action. 
 
 ```yaml
 name: "My Shared Steps"
@@ -22,11 +22,11 @@ runs:
       shell: bash
 ```
 
-All you need to do is make a file like this, and set the top level `runs:` property to the string `"composite"`.  
+First, make a file like this and set the top-level `runs:` property to the string `"composite"`.  
 
 Also, [Action](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions) files are different from [Workflow](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) files. Once such difference is that your steps must specify a [shell](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) property if they use `run:` . That knowledge will save you from this error.
 
-![Action Error](action.png)
+![Shell Error](shell.png)
 
 
 
@@ -40,7 +40,7 @@ It can go anywhere in your repo. Or in it's own repo.  But, I want mine in the `
 
 Notice that I needed to create a directory containing a file called `action.yml`. This is the required structure for an action. I tried naming the file something else and it didn't like that. 
 
-![Shell Error](shell.png)
+![Action Error](action.png)
 
 > Important: the action must be a directory containing an action.yml file.
 
@@ -56,11 +56,11 @@ steps:
 	- uses: ./.github/actions/my-shared-steps
 ```
 
-Since I am using an [action that is in our repo](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-using-an-action-in-the-same-repository-as-the-workflow), I specify the path to the file from the root of the repository starting with a `./`.  I'm not sure if that's required, but hey, just copy-paste the docs. If your action not is the repo, [here are your options](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses) for using it.
+Since I am using an [action that is in our repo](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-using-an-action-in-the-same-repository-as-the-workflow), I specify the path to the file from the root of the repository starting with a `./` (that's required).  If your action is not in the repo, [here are your options](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses) for using it.
 
 ## Passing Data to the Action
 
-More errors revealed that I couldn't use the `${{ secrets }}` variable in my composite action. I had to pass it data using the `inputs:` property in the action, and the `with:` property in the workflow. Here's an example of one of my finished composite actions:
+More errors revealed that I couldn't use the `${{ secrets }}` variable in my composite action. I had to pass it data using the `inputs:` property in the action, and the `with:` property in the workflow. Here's an example:
 
 
 
