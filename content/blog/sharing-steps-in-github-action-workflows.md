@@ -26,7 +26,7 @@ First, make a file like this and set the top-level `runs:` property to the strin
 
 Also, [Action](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions) files are different from [Workflow](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) files. Once such difference is that your steps must specify a [shell](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) property if they use `run:` . That knowledge will save you from this error.
 
-![Shell Error](shell.png)
+![Shell Error](/img/sharing-steps-in-github-action-workflows/shell.png)
 
 
 
@@ -40,7 +40,7 @@ It can go anywhere in your repo. Or in it's own repo.  But, I want mine in the `
 
 Notice that I needed to create a directory containing a file called `action.yml`. This is the required structure for an action. I tried naming the file something else and it didn't like that. 
 
-![Action Error](action.png)
+![Action Error](/img/sharing-steps-in-github-action-workflows/action.png)
 
 > Important: the action must be a directory containing an action.yml file.
 

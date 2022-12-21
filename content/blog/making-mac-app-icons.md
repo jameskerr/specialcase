@@ -19,6 +19,11 @@ Then run this on it.
 iconutil -c icns icon.iconset
 ```
 
+Windows
+```
+convert icon.icoset/*png icon.ico
+```
+
 
 DMG
 

@@ -78,7 +78,6 @@ h6 {
 
 h1 {
   font-size: 2.8rem;
-  line-height: 1;
 }
 
 .post-title {
@@ -97,7 +96,8 @@ a {
 }
 
 .wrap {
-  max-width: 630px;
+  width: 100%;
+  max-width: 690px;
   margin: 0 auto;
   padding: 0 2rem;
 }
