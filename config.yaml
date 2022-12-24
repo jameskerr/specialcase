@@ -6,8 +6,8 @@ theme: blank
 googleAnalytics: G-D8JVDHTGVB
 
 params:
-  description: A Development Blog by James Kerr
-  tagline: A Development Blog
+  description: The Personal Blog of James Kerr
+  tagline: The Personal Blog
   author: James Kerr
   twitter: specialCaseDev
   images:
@@ -16,5 +16,3 @@ params:
 markup:
   highlight:
     style: github
-
-
