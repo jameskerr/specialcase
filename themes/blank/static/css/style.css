@@ -28,6 +28,13 @@
 html,
 body {
   height: 100%;
+  font-size: 22px;
+}
+
+@media screen and (max-width: 450px) {
+  html,body {
+    font-size: 18.7px;
+  }
 }
 
 /*
@@ -42,6 +49,10 @@ body {
   color: var(--body-color);
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
 /*
     6. Improve media defaults
   */
@@ -104,11 +115,6 @@ a {
 }
 
 
-body {
-  font-size: 22px;
-  display: flex;
-  flex-direction: column;
-}
 
 .title {
   font-family: bely-display;
@@ -121,7 +127,7 @@ body {
 
 .title h1 {
   line-height: 1.2;
-  font-size: 3rem;
+  font-size: 2.4rem;
   letter-spacing: 2px;
 }
 
