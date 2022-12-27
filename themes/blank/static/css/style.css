@@ -28,7 +28,7 @@
 html,
 body {
   height: 100%;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 @media screen and (max-width: 450px) {
@@ -86,10 +86,6 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
-}
-
-h1 {
-  font-size: 2.8rem;
 }
 
 .post-title {
@@ -199,6 +195,9 @@ time {
   margin-top: 0;
 }
 
+article h1 {
+  font-size: 2.2rem;
+}
 article p,
 article pre {
   margin-top: 1em;
@@ -223,9 +222,9 @@ code {
   font-family: source-code-pro, monospace;
   font-style: normal;
   border-radius: 10px;
-  font-size: 1rem;
   background-color: var(--pre-background-color) !important;
   padding: 0 0.5rem;
+  font-size: 0.75rem;
 }
 
 pre>code {
@@ -235,4 +234,9 @@ pre>code {
 
 article h2 {
   margin-top: 1.2em;
+}
+
+footer {
+  margin-top: 30vh;
+  background: rgba(0,0,0,0.04);
 }
