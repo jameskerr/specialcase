@@ -1,0 +1,34 @@
+---
+title: The Harder To Learn, the Harder to Leave
+date: 2023-03-10T12:31:19-08:00
+draft: true
+---
+
+At Brim Data, we've created a brand new scripting language for querying data. We get a lot of hate when ever we compare ourselves as easier to another tool. The fact is, we probably are easier than other tools like SQL, JQ, and Parquet.
+
+However, people love Git. People love SQL. People love jq. People love JavaScript even though it's a hot mess from the top to the bottom.
+
+I think the hard something is to learn, the more love you have for it. It's like a marriage or raising a child. It's the hardest thing you'll ever do, but then you're bonded to it like nothing else. Same goes for difficult software tools. Once you get it, it feels like your on the inside. Once you get it, your bonded to it. You get defensive if others critisizes it because they were you just last week. 
+
+I'm convinced we're most criticle of things that we were just like 6 months ago. It's like we just transcended something and now we hate the previous version of ourselves. It's easy to have mercy on a very old version of yourself, but the current-1 version, we want to get as far away as possible from that crap code.
+
+Some people will love SQL for their lives and use it all the time forever and never need to try anything else. But for those who haven't trama-bonded to it, try Zed. It's a language built in this millennium and it's easier to get your data questions answered.
+
+For example:
+
+select * from users.
+
+is(<user>)
+
+select where name ILIKE %james% from users.
+
+james
+
+blah blah blah
+
+I tend to fall in love things with things that were hard to learn. Once I get it, I feel on the inside. I am bonded to it. It is now above anyone's critique.
+
+In the software world, I'm thinking of Git, SQL, Jq, even JavaScript.
+
+In reality, they ARE hard!
+ 

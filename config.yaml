@@ -1,13 +1,11 @@
-baseURL: "https://www.specialcase.dev/"
+baseURL: "https://www.jameskerr.blog/"
 languageCode: "en-us"
-title: Special Case by James Kerr
+title: James Kerr
 author: James Kerr
 theme: blank
 googleAnalytics: G-D8JVDHTGVB
 
 params:
-  description: The Personal Blog of James Kerr
-  tagline: The Personal Blog
   author: James Kerr
   twitter: specialCaseDev
   images:

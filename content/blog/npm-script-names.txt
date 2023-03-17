@@ -1,0 +1,54 @@
+---
+title: The Perfect Four NPM Scripts
+date: 2023-02-01T13:36:26-08:00
+draft: true
+---
+
+# The Perfect Four Npm Scripts
+,88888888888888888888'Point ==-0 mj,n.                                ....ggggggggggggg f;/g   v/'g gg ;ff''''''g;'bbbb/bhhhhhhhhhhhhhhh88888888888888888uuu''  ;
+A new developer's experience should always be:
+
+```
+git clone <repo>
+cd <repo>
+yarn
+yarn start
+```
+
+Your CI should workflow should always be:
+
+```
+yarn build
+yarn lint
+yarn test
+```
+
+If your build process can't all fit in a single script, use `npm-run-all`. Make a series of helper scripts prefixed by one perfect four above.
+
+```
+{
+  "build": "npm-run-all -s build:library build:demo",
+  "build:library": "yarn workspace library build",
+  "build:demo": "yarn workspace demo build",
+}
+```
+
+Let me define each one.
+
+1. **Start**
+
+This is the first thing a new user would do to start your package. For some, this starts the development experience. For others, this starts a server. Don't use `dev`, don't use `watch`, use `start`.
+
+2. **build**
+
+Builds the production version of your package and puts it in the `/dist`. Folder (only use `dist` and `src`).
+
+3. **lint**
+
+Lint the code with a static analyzer. Check types, check format, check style. All that goes in this one.
+
+4. **test**
+
+Run all of the tests. If this package contains multiple types of tests (unit, integration), please run them all sequentially. New developers of your package can easily know that if `yarn test` passes, we're good to go.
+
+Side note, put your e2e tests in another package using yarn's monorepo setup. Then the e2e tests have their own package with their own test script. 
