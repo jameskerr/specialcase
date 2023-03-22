@@ -3,7 +3,7 @@ title: Adults Don't Share
 date: 2022-12-23T9:00:00-07:00
 draft: false
 description: |
-   I certainly don't practice what I preach.
+   All the time at the playground I hear, "good sharing!" and "no no Jackson, you need to share"...
 ---
 
 All the time at the playground I hear, "good sharing!" and "no no Jackson, you need to share".
