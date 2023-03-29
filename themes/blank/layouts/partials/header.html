@@ -1,7 +1,4 @@
 <header>
-	<div class="wrap">
-		
-		  
 	<a class="title" href="{{ .Site.BaseURL }}">
 		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
 			<g fill-rule="evenodd">
@@ -15,13 +12,13 @@
 	</a>
 	
 	{{ with .Site.Menus.main }}
-	<nav>
-		<ul>
-			{{ range . }}
-			<li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-			{{ end }}
-		</ul>
-	</nav>
+		<nav>
+			<ul>
+				{{ range . }}
+				<li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+				{{ end }}
+			</ul>
+		</nav>
 	{{ end }}
 	</div>
 </header>

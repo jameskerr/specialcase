@@ -1,9 +1,8 @@
 {{ define "main" }}
-<main>
+<main class="list-layout">
 	<div class="wrap">
 		{{ if or .Title .Content }}
 		<div>
-			{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
 			{{ with .Content }}<div>{{ . }}</div>{{ end }}
 		</div>
 		{{ end }}
