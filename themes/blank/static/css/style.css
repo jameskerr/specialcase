@@ -273,7 +273,6 @@ article h2 {
 }
 
 footer {
-  margin-top: 30vh;
   background: rgba(0,0,0,0.04);
 }
 
@@ -283,14 +282,14 @@ footer {
 
 
 .bio {
-  margin-top: 15vh;
+  margin-top: 8vh;
   filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.2));
   padding-top: 5rem;
   padding-right: calc(2rem + 20px);
 }
 
-.bio h3, h4, p {
-  margin: 0.5rem;
+.bio p {
+  margin: 0.8rem 0;
 }
 
 .bio__bg {
@@ -299,16 +298,16 @@ footer {
   padding-bottom: 2rem;
   position: relative;
   border-radius: 50px;
-  border: 10px solid var(--link-color);
+  border: 8px solid white;
 }
 
 .bio__image {
   position: absolute;
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50px;
   display: flex;
-  box-shadow: 0 0 0 10px whitesmoke,  0 0 0 20px var(--link-color);
+  box-shadow: 0 0 0 8px white;
   top: -5rem;
   right: -2rem;
 }
@@ -321,7 +320,7 @@ footer {
 }
 
 .bio__greeting {
-  font-size: 3rem;
+  font-size: 2rem;
   text-shadow: 2px 4px white;
   margin: 0;
 }
