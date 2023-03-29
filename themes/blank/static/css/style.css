@@ -313,9 +313,17 @@ footer {
 }
 
 @media screen and (max-width: 510px) {
+  .bio {
+    padding: 0;
+  }
+  
   .bio__image {
-    width: 6rem;
-    height: 6rem;
+    width: 100%;
+    height: 100%;
+    position: static;
+    box-shadow: none;
+    border-radius: 30px;
+    margin-bottom: 1rem;
   }
 
   .bio__bg {
