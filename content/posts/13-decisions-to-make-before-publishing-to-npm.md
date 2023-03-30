@@ -1,5 +1,5 @@
 ---
-title: Decision Fatigue While Publishing JavaScript to NPM
+title: 13 Decisions to Make Before Publishing JavaScript to NPM
 date: 2023-03-30T09:00:00-07:00
 draft: false
 description: |
