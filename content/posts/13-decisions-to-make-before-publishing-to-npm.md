@@ -1,16 +1,16 @@
 ---
-title: 13 Decisions to Make Before Publishing JavaScript to NPM
-date: 2023-03-28T11:00:00-07:00
+title: Decision Fatigue While Publishing JavaScript to NPM
+date: 2023-03-30T09:00:00-07:00
 draft: false
 description: |
   To simply share some JavaScript you've got to consider JS runtimes, module formats, and package.json interpretations. Was it easier when cross-browser compatibility was the big headache?
 ---
 
-This post is half rant, half guide. Each question reveals tradeoffs that take time and mental energy to research. In case you don't already have enough to decide today, here's what you must consider when creating and publishing a new JavaScript package.
+This post is half rant, half guide. Each of these 13 questions reveals tradeoffs that take time and mental energy to research. In case you don't already have enough to decide today, here's what you must consider when creating and publishing a new JavaScript package.
 
 ### 1. Do you want to write it in TypeScript?
  
-You'll need to compile it and bookmark the the [tsconfig.json](https://www.typescriptlang.org/tsconfig) reference.
+If so, you'll need to compile it before publishing. Bookmark the the [tsconfig.json](https://www.typescriptlang.org/tsconfig) reference.
 
 ### 2. Do you want to compile using tsc, swc, or esbuild?
 
