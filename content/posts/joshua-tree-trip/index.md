@@ -5,7 +5,7 @@ draft: false
 description: We took a trip down to Joshua Tree this weekend for a cousin's wedding. For the first time, I could appreciate the gifts of a desert climate. 
 ---
 
-{{< figure src="./joshua-tree - 4.jpeg" link="./joshua-tree - 4.jpeg">}}
+{{< figure src="./feature.jpeg" link="./feature.jpeg">}}
 
 We took a trip down to Joshua Tree this weekend for a cousin's wedding. For the first time, I could appreciate the gifts of a desert climate. There is much less visual input stimulating the brain. The plants don't grow dense or tall so you can see everything around you. It's calming not to wonder what's behind the trees. And the heat makes you want to just sleep or sit in the pool or not do anything. If you need to rest or think, the dessert is a great place to do it.
 
