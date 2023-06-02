@@ -81,6 +81,11 @@ h6 {
   overflow-wrap: break-word;
 }
 
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .post-title {
   margin-bottom: 2rem;
   text-align: center;;
@@ -278,63 +283,6 @@ footer {
 
 .section-title {
   margin-top: 0;
-}
-
-
-.bio {
-  margin-top: 8vh;
-  filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.2));
-  padding-top: 5rem;
-  padding-right: calc(2rem + 20px);
-}
-
-.bio p {
-  margin: 0.8rem 0;
-}
-
-.bio__bg {
-  background: whitesmoke;
-  padding: 1rem 2rem;
-  padding-bottom: 2rem;
-  position: relative;
-  border-radius: 50px;
-  border: 8px solid white;
-}
-
-.bio__image {
-  position: absolute;
-  width: 8rem;
-  height: 8rem;
-  border-radius: 50px;
-  display: flex;
-  box-shadow: 0 0 0 8px white;
-  top: -5rem;
-  right: -2rem;
-}
-
-@media screen and (max-width: 510px) {
-  .bio {
-    padding: 0;
-  }
-  
-  .bio__image {
-    width: 100%;
-    height: 100%;
-    position: static;
-    box-shadow: none;
-    border-radius: 30px;
-    margin-bottom: 1rem;
-  }
-
-  .bio__bg {
-    padding: 1rem 1rem 2rem 1rem;
-  }
-}
-
-.bio__greeting {
-  font-size: 2rem;
-  text-shadow: 2px 4px white;
-  margin: 0;
 }
 
 .footer__site-title {
