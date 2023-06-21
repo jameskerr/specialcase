@@ -20,12 +20,14 @@
 			</div>
 			{{ end }}
 			
-			<div>
-				{{ template "_internal/disqus.html" . }}
-			</div>
+			
 		</div>
 		
 	</article>
-	
+	<div class="comments">
+		<div class="wrap">
+			{{ template "_internal/disqus.html" . }}
+		</div>
+	</div>
 </main>
 {{ end }}
