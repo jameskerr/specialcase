@@ -9,6 +9,7 @@
 			<div>
 				{{ .Content }}
 			</div>
+			
 			{{ with .Params.tags }}
 			<div>
 				<ul id="tags">
@@ -18,7 +19,13 @@
 				</ul>
 			</div>
 			{{ end }}
+			
+			<div>
+				{{ template "_internal/disqus.html" . }}
+			</div>
 		</div>
+		
 	</article>
+	
 </main>
 {{ end }}
