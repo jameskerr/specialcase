@@ -49,4 +49,4 @@ I am pround of myself. It was nerve-racking to do, but I had to do something and
 
 Let me add this. The next day I was filled with anxiety. I kept wondering if I would run into that dude on the street. I was suprised by this. As I reflected on it, it seemed similar to my experiences in jr. high when other kids treated me poorly. There was a terrible feeling powerlessness I felt then. If someone picked on me, I had no recourse. I wasn't the fighting type, being a tattle-tail wasn't cool, and I couldn't chose not to be around them. Somehow this experience brought me back to those days. Who knows...
 
-It did suck having to deal with all of this. It was an emotionally rigorous day and and a half. But I got to practice telling the truth. Maybe next time it'll be easier.
+It did suck having to deal with all of this. It was an emotionally rigorous day and a half. But I got to practice telling the truth. Maybe next time it'll be easier.
