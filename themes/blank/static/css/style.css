@@ -4,6 +4,8 @@
   --body-color: hsl(352 87% 10%);
   --pre-background-color: hsl(352 87% 10% / 0.04);
   --layout-width: 720px;
+  --body-font: "brother-1816";
+  --heading-font: "brother-1816-printed";
 }
 
 /*
@@ -21,7 +23,9 @@
 html,
 body {
   height: 100%;
-  font-size: 24px;
+  font-size: 22px;
+  padding: 0;
+  margin: 0;
 }
 
 @media screen and (max-width: 450px) {
@@ -38,7 +42,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: bely, sans-serif;
+  font-family: var(--body-font), serif;
   color: var(--body-color);
 }
 
@@ -81,12 +85,24 @@ h6 {
   overflow-wrap: break-word;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  font-weight: 700;
+}
+
+
 figure {
   margin-left: 0;
   margin-right: 0;
 }
 
 .post-title {
+  margin-top: 2rem;
   margin-bottom: 2rem;
   text-align: center;;
 }
@@ -99,7 +115,7 @@ figure {
   font-size: 0.7rem;
   display: block;
   margin: 1rem 0;
-  font-weight: 900;
+  font-weight: 100;
 }
 
 .post-title-link {
@@ -121,7 +137,6 @@ a {
 }
 
 .title {
-  font-family: bely-display;
   box-shadow: none;
   color: var(--body-color);
   display: flex;
@@ -134,35 +149,12 @@ a {
   font-size: 1.5rem;
   letter-spacing: 2px;
   margin: 0;
-  font-weight: 400;
   white-space: nowrap;
-}
-
-.title svg {
-  width: 1.2rem;
-  height: 1.25rem;
-  margin-right: 1rem;
-  flex-shrink: 0;
-}
-
-.title path {
-  fill: var(--body-color);
-}
-
-
-.title #special {
-  fill: var(--primary-color)
-}
-
-.tagline {
-  margin-top: 1rem;
-  margin-left: 3.5rem;
 }
 
 header {
   display: flex;
-  padding: 0.5rem 1rem;
-  margin-bottom: 15vh;
+  padding: 0.5rem 5vw;
   justify-content: space-between;
   align-items: center;
 }
@@ -219,10 +211,9 @@ footer nav ul {
 }
 
 time {
-  opacity: 0.8;
   font-size: 0.8rem;
   letter-spacing: 2px;
-  font-weight: bold;
+  font-weight: 100;
   display: block;
 }
 
@@ -240,6 +231,7 @@ article h1 {
 }
 article p,
 article pre {
+  font-weight: 400;
   margin-top: 1em;
 }
 
@@ -277,10 +269,6 @@ article h2 {
   margin-top: 1.2em;
 }
 
-footer {
-  background: rgba(0,0,0,0.04);
-}
-
 .section-title {
   margin-top: 0;
 }
@@ -290,7 +278,16 @@ footer {
   justify-content: center;;
 }
 
-
 .comments {
   padding: 5rem 0;
+}
+
+.featured-image {
+  margin: 0 auto;
+  margin-top: 1rem;
+  max-height: 69vmin;
+}
+
+.list-layout {
+  margin-top: 2rem;
 }

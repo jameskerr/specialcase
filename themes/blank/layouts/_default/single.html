@@ -1,11 +1,20 @@
 {{ define "main" }}
 <main>
 	<article>
+		
+		{{ with (.Resources.ByType "image").GetMatch "*feature*" }}
+			  <img src="{{ .RelPermalink }}" class="featured-image" />
+		{{ end }}
+		
+		
 		<div class="wrap">
 			<div class="post-title">
 				<h1>{{ .Title }}</h1>
 				<time datetime="{{ .Date.Format " 2006-01-02T15:04:05" }}">{{ .Date.Format "January 2, 2006" }}</time>
 			</div>
+		</div>
+		
+		<div class="wrap">
 			<div>
 				{{ .Content }}
 			</div>
