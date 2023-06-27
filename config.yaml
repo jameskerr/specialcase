@@ -5,6 +5,7 @@ author: James Kerr
 theme: blank
 googleAnalytics: G-D8JVDHTGVB
 disqusShortname: jameskerrblog
+paginate: 100
 
 params:
   author: James Kerr
@@ -14,7 +15,8 @@ params:
 
 markup:
   highlight:
-    style: github
+    style: nord
+    noClasses: false
 
 menus:
   main:

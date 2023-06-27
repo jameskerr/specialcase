@@ -1,7 +1,7 @@
 ---
 title: Joshua Tree Trip
 date: 2023-05-31T00:00:00-00:00
-draft: false
+draft: true
 description: We took a trip down to Joshua Tree this weekend for a cousin's wedding. For the first time, I could appreciate the gifts of a desert climate. 
 ---
 
