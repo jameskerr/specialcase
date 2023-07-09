@@ -37,7 +37,7 @@ if (inTransition && !timeExpired) {
 Let's figure out when to cache. We must save the data before the transition starts. Let's put this in an effect that runs when _inTransition_ changes or when the data changes. Only cache if _isTransition_ is false. 
 
 ```javascript
-const [cache, setCache] = useRef(data)
+const cache = useRef(data)
 
 useEffect(() => {
  	if (!inTransition) cache.current = data
@@ -61,7 +61,7 @@ useEffect(() => {
     setTimeExpired(false)
   }
   return () => clearTimeout(id)
-}, [inTransition])
+}, [inTransition, dur])
 ```
 
 We do want to re-render when `timeExpired` changes so we `useState`.
@@ -91,7 +91,7 @@ export function useDataTransition<T>(
       setTimeExpired(false)
     }
     return () => clearTimeout(id)
-  }, [inTransition])
+  }, [inTransition, timeout])
 
   if (inTransition && !timeExpired) return cache.current
   else return real
