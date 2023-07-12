@@ -6,10 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>{{ .Title }}</title>
-	{{ with .Site.Params.description }}
-	<meta name="description" content="{{ . }}">{{ end }}
-	{{ with .Site.Params.author }}
-	<meta name="author" content="{{ . }}">{{ end }}
+	<meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
+	<meta name="author" content="{{ $.Site.Params.author }}" />
 
 	<link rel="stylesheet" href="https://use.typekit.net/kho2zxj.css">
 	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">

@@ -1,7 +1,6 @@
 baseURL: "https://www.jameskerr.blog/"
 languageCode: "en-us"
 title: James Kerr
-author: James Kerr
 theme: blank
 googleAnalytics: G-D8JVDHTGVB
 disqusShortname: jameskerrblog
@@ -9,6 +8,7 @@ paginate: 100
 
 params:
   author: James Kerr
+  description: Thoughts about programming and the shared human experience.
   twitter: specialCaseDev
   images:
     - /img/site-thumbnail-image-2.jpg
