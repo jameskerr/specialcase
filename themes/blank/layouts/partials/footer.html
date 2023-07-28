@@ -1,17 +1,17 @@
 <footer>
-	<div class="wrap">
-		<a class="footer__site-title title" href="{{ .Site.BaseURL }}">
-		  <h1>{{.Site.Title}}</h1>
-		</a>
-		{{ with .Site.Menus.main }}
-		<nav>
-			<ul>
-				{{ range . }}
-				<li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-				{{ end }}
-			</ul>
-		</nav>
-	{{ end }}
-	</div>
-	{{ template "_internal/google_analytics.html" . }}
+  <div class="wrap">
+    <a class="footer__site-title title" href="{{ .Site.BaseURL }}">
+      <h1>{{.Site.Title}}</h1>
+    </a>
+    {{ with .Site.Menus.main }}
+    <nav>
+      <ul>
+        {{ range . }}
+        <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+    {{ end }}
+  </div>
+  {{ template "_internal/google_analytics.html" . }}
 </footer>
