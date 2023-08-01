@@ -69,7 +69,7 @@ We can control the collapsible state from the outside by calling the `collapse()
 
 In the React version of [tanstack-table](https://tanstack.com/table/v8), the go-to component library for everything tabular, [Tanner Linsley](https://twitter.com/tannerlinsley) allows us to partially control the state of our table by passing arguments to the [useReactTable](https://tanstack.com/table/v8/docs/adapters/react-table) hook.
 
-His library only provides a hook leaves rendering for us, but this is essentially like passing props to a component. When the arguments to the hook change, React will re-render our table.
+His library only provides a hook and leaves rendering for us, but this is essentially passing props to a component. When the arguments to the hook change, React will re-render our table.
 
 ```jsx
 const table = useReactTable({
@@ -84,7 +84,7 @@ const table = useReactTable({
 });
 ```
 
-Take a look at that partial control! I really think he's onto something. Since the component/hook does so many things, the state is divided into logical slices. Each slice can either be controlled or uncontrolled depending on the presence of an `on[SliceName]Change` handler. I love this pattern. However, to me, its undesirable that the value and change handler are not co-located. It is also a bit verbose. But it is declarative and much more "React".
+Look at that partial control! I really think he's onto something. Since the component/hook does so many things, the state is divided into logical slices. Each slice can either be controlled or uncontrolled depending on the presence of an `on[SliceName]Change` handler. I love this pattern. However, to me, its undesirable that the value and change handler are not co-located. It is also a bit verbose. But it is declarative and much more "React".
 
 ## API Inspiration from React Input Elements
 
