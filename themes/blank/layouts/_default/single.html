@@ -2,7 +2,7 @@
 <main>
 	<article>
 		
-		{{ with (.Resources.ByType "image").GetMatch "*feature*" }}
+		{{ with (.Resources.ByType "image").GetMatch "*cover*" }}
 			  <img src="{{ .RelPermalink }}" class="featured-image" />
 		{{ end }}
 		
