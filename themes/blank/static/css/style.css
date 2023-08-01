@@ -29,7 +29,8 @@ body {
 }
 
 @media screen and (max-width: 450px) {
-  html,body {
+  html,
+  body {
     font-size: 18.7px;
   }
 }
@@ -95,7 +96,6 @@ h6 {
   font-weight: 700;
 }
 
-
 figure {
   margin-left: 0;
   margin-right: 0;
@@ -104,7 +104,7 @@ figure {
 .post-title {
   margin-top: 2rem;
   margin-bottom: 2rem;
-  text-align: center;;
+  text-align: center;
 }
 
 .post-title h1 {
@@ -150,6 +150,7 @@ a {
   letter-spacing: 2px;
   margin: 0;
   white-space: nowrap;
+  width: 100%;
 }
 
 header {
@@ -170,6 +171,10 @@ header nav ul {
   header {
     display: block;
     margin: 0 auto;
+  }
+
+  .title {
+    text-align: center;
   }
 
   header nav ul {
@@ -258,10 +263,9 @@ code {
   background-color: var(--pre-background-color) !important;
   padding: 0 0.5rem;
   font-size: 0.75rem;
-  
 }
 
-pre>code {
+pre > code {
   padding: 0;
   line-height: 1.6;
   background-color: transparent !important;
@@ -278,7 +282,7 @@ article h2 {
 
 .footer__site-title {
   display: flex;
-  justify-content: center;;
+  justify-content: center;
 }
 
 .comments {
@@ -288,7 +292,9 @@ article h2 {
 .featured-image {
   margin: 0 auto;
   margin-top: 1rem;
-  max-height: 69vmin;
+  width: 100%;
+  max-width: 750px;
+  position: relative;
 }
 
 .list-layout {
