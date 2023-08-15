@@ -2,10 +2,10 @@
 <html lang="{{ .Site.LanguageCode | default " en-us" }}">
 
 <head>
+	<title>{{ .Title }}</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>{{ .Title }}</title>
 	<meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
 	<meta name="author" content="{{ $.Site.Params.author }}" />
 
@@ -15,6 +15,9 @@
 	
 	{{ template "_internal/twitter_cards.html" . }}
 	{{ template "_internal/opengraph.html" . }}
+
+	<script defer data-domain="jameskerr.blog" src="https://plausible.io/js/script.js"></script>
+
 
 	{{/*  From Favicon Generator  */}}
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
