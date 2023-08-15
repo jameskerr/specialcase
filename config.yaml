@@ -2,7 +2,6 @@ baseURL: "https://www.jameskerr.blog/"
 languageCode: "en-us"
 title: James Kerr
 theme: blank
-googleAnalytics: G-D8JVDHTGVB
 disqusShortname: jameskerrblog
 paginate: 100
 
@@ -26,4 +25,3 @@ menus:
       url: https://github.com/jameskerr
     - name: RSS
       url: /index.xml
-    
