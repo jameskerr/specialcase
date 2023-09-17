@@ -11,7 +11,7 @@ Earlier that evening I observed this man enthusiastically playing with an 18-mon
 
 I've been there. I'm a former "slide-pusher" myself. It may even be motivated by good intention.  We want to push our children to face their fears and build courage. But at a certain point, a child is simply not able or willing to try something. Respecting this is also good. It gives them a feeling of autonomy and control over their own life.
 
-I've given up on slide pushing and now wait (not easy) until the kid wants to go down. My son was formly hesitant about the big slide, but now rips down it like it's going out of style. He was ready when he was ready. He probably feels proud of himself and doesn't have to worry about pleasing me on this front. That is good.
+I've given up on slide pushing and now wait (not easy) until the kid wants to go down. My son was formerly hesitant about the big slide, but now rips down it like it's going out of style. He was ready when he was ready. He probably feels proud of himself and doesn't have to worry about pleasing me on this front. That is good.
 
 Now for the incident. It's 5pm and my son is tired. He's playing on this thing that spins you around. It's small. Two kids can spin on it, but kids often spin one at a time. JJ walks over to the spinner and wants a turn. The man is walking away to sit down with his friends when he notices JJ and my son about to get into some classic toddler conflict. 
 
@@ -45,8 +45,8 @@ He responded, "Sorry about that. I was just trying to get him to share with our 
 
 I said thanks and we left.
 
-I am pround of myself. It was nerve-racking to do, but I had to do something and telling the truth seemed like a good option. Maybe he will learn something from that experience, but it was mostly for me. I want to practice that kind of thing. Maybe there'll be a time where it's harder to speak up, but even more necessary. 
+I am proud of myself. It was nerve-racking to do, but I had to do something and telling the truth seemed like a good option. Maybe he will learn something from that experience, but it was mostly for me. I want to practice that kind of thing. Maybe there'll be a time where it's harder to speak up, but even more necessary. 
 
-Let me add this. The next day I was filled with anxiety. I kept wondering if I would run into that dude on the street. I was suprised by this. As I reflected on it, it seemed similar to my experiences in jr. high when other kids treated me poorly. There was a terrible feeling of powerlessness I felt then. If someone picked on me, I had no recourse. I wasn't the fighting type, being a tattle-tail wasn't cool, and I couldn't chose not to be around them. Somehow this experience brought me back to those days. Who knows...
+Let me add this. The next day I was filled with anxiety. I kept wondering if I would run into that dude on the street. I was surprised by this. As I reflected on it, it seemed similar to my experiences in jr. high when other kids treated me poorly. There was a terrible feeling of powerlessness I felt then. If someone picked on me, I had no recourse. I wasn't the fighting type, being a tattle-tail wasn't cool, and I couldn't chose not to be around them. Somehow this experience brought me back to those days. Who knows...
 
 It did suck having to deal with all of this. It was an emotionally rigorous day and a half. But I got to practice telling the truth. Maybe next time it'll be easier.
