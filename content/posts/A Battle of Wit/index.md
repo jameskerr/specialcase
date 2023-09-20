@@ -2,6 +2,7 @@
 title: "A Battle of Wit"
 date: 2023-09-16T17:44:44-07:00
 draft: false
+description: A poem about jesting with friends.
 ---
 
 *Swords drawn*  
@@ -20,3 +21,4 @@ draft: false
 *Pull up to stand*  
 *Love wrapped up in a sheath*  
 
+This was written on a backpacking trip where eight men hiked for four days in the wilderness. Whenever a group of friends are together, you're bound to find this battlefield.
