@@ -18,7 +18,7 @@ markup:
     noClasses: false
 
 menus:
-  main:
+  links:
     - name: Twitter
       url: https://twitter.com/specialCaseDev
     - name: GitHub

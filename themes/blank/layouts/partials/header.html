@@ -1,16 +1,7 @@
 <header>
-	<a class="title" href="{{ .Site.BaseURL }}">
-		<h1>{{.Site.Title}}</h1>
-	</a>
-		
-	{{ with .Site.Menus.main }}
-		<nav>
-			<ul>
-				{{ range . }}
-				<li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-				{{ end }}
-			</ul>
-		</nav>
-	{{ end }}
-	</div>
+  <div class="wrap">
+    <a class="title" href="{{ .Site.BaseURL }}">
+      <h1>{{.Site.Title}}</h1>
+    </a>
+  </div>
 </header>

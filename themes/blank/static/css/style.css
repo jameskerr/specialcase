@@ -126,7 +126,8 @@ figure {
 a {
   text-decoration: none;
   color: var(--link-color);
-  box-shadow: 0 1px 0 0 currentColor;
+  /* text-decoration: underline; */
+  font-weight: 600;
 }
 
 .wrap {
@@ -155,8 +156,9 @@ a {
 
 header {
   display: flex;
-  padding: 0.5rem 5vw;
-  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  justify-content: center;
   align-items: center;
 }
 
@@ -282,7 +284,7 @@ article h2 {
 
 .footer__site-title {
   display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 .comments {
