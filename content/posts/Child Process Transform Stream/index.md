@@ -1,8 +1,8 @@
 ---
-title: How to Wrap a NodeJS Child Process in a Transform Stream
+title: How to Pipe a NodeJS Readable Stream into a Child Process
 date: 2023-09-22T10:00:27-07:00
 draft: false
-description: How to wrap a NodeJS child process with a transform stream so that you can use it in a pipeline.
+description: Learn how to wrap a NodeJS child process with a transform stream so that you can use it in a pipeline.
 ---
 
 I love pipes. Anytime I can pipe something somewhere, it seems that order has claimed a victory over chaos. In fact, there is pipe-related photo of me at the end of this article for your viewing pleasure.
