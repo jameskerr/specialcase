@@ -1,30 +1,29 @@
 ---
-title: "Child Process Transform Stream"
-date: 2023-09-21T10:00:27-07:00
-draft: true
+title: How to Wrap a NodeJS Child Process in a Transform Stream
+date: 2023-09-22T10:00:27-07:00
+draft: false
+description: How to wrap a NodeJS child process with a transform stream so that you can use it in a pipeline.
 ---
 
-```bash
-cat my-file.json | zq 'upper(name)' - | zed load
-```
+I love pipes. Anytime I can pipe something somewhere, it seems that order has claimed a victory over chaos. In fact, there is pipe-related photo of me at the end of this article for your viewing pleasure.
 
-Pipes are the best. I love pipes. Anytime I can pipe something somewhere, the world is a better place. In fact, there is pipes-related photo of me at the end of this article! Incentives!
+The other day I was working in NodeJS and wanted to pipe a readable stream to a spawned child process.
 
-I was working on a node project where I wanted to read some data from a readable stream, pipe it into a spawned child process for some transformation, then pipe the transformed output to an http post body.
-
-The finished code looked something like this.
+I wanted something that could do this.
 
 ```js
 const process = createProcess(args);
-
 const zq = createTransformStream(process);
-
-const data = input.pipe(zq)
+const data = input.pipe(zq) // <-- Very cool
 
 await client.load(data)
 ```
 
-First we need to write a function that will spawn the child process. Some tools might require an extra option to read from standard in.
+The child process needed to be a wrapped in a transform stream that would feed data to stdin and pass on data from stdout.
+
+## Spawn a Child Process
+
+First, I spawned my process. NodeJS provides the [spawn](https://nodejs.org/api/child_process.html#child_processspawncommand-args-options) function to fire up an executable on your file system. The return value is a [ChildProcess](https://nodejs.org/api/child_process.html#class-childprocess) object.
 
 ```js
 function createProcess(args) {
@@ -33,45 +32,29 @@ function createProcess(args) {
 }
 ```
 
-Now we need to convert that process into a Transform Stream. A transform stream has both the Writable and Readable interfaces. Data can be written to it and read from it. Let's pause to discuss the differences between Readable and Writeable in NodeJS.
+## Wrap the Child Process in a Transform Stream
 
-## Understanding NodeJS Readables
+Now we need to wrap that process in a [transform stream](https://nodejs.org/api/stream.html#class-streamtransform) so that we can pipe, pipe, pipe.
 
-A Readable is like a file. Most of the time, the text is already in the file and code that has the readable call `readable.read()` to get some of it.
+The steps:
 
-```js
-const string = readable.read()
-```
+1. Receive a chunk of data as an argument in the `transform` function.
+2. Write that chunk to the child's `stdin` .
+3. Receive data coming from the child's `stdout` .
+4. Push that data into the transform stream.
+5. Handle errors and clean up.
 
-But often, if you are creating your own Readable, it starts off empty. There is no data to read from it. To add data to the readable, you use the `readable.push(data)` method. This was confusing to me, because you are essentially "writing" data into the readable. But we can't say that because of the Writeable we're about to talk about next. We are "pushing" data into a readable. At some point, someone might call .read() to get the data back out.
+Here is the code.
 
-```js
-readable.push("my-important-data")
-```
-
-## Understanding NodeJS Writables
-
-A Writeable is a destination for data to land. The writable thing takes the data you give it with `writable.write("my-important-data")` and does something with it. To indicate that you've written all the data you have to it, you call `writable.end()`.
-
-
-## Understanding NodeJS Duplex Streams
-
-To make everything super confusing, some objects can be both Readable and Writable. This means you can call `.push()`, `.read()`, `.write()`, and `.end()` on these things.
-
-A special type of Duplex stream is called the Transform Stream. It provides a shorthand way of reading from a source and writing to a destination. We are going to use one of these in this example.
-
-## Using the Child Process in the Transform Stream
-
-Here is the code that takes a child process as its only argument, and returns a Transform stream that we can pipe input to.
 
 ```js
 function createTransformStream(child) {
   const stream = new Stream.Transform({
     transform(chunk, encoding, callback) {
-      if (!child.stdin.write(chunk, encoding)) {
-        child.stdin.once('drain', callback);
+      if (child.stdin.write(chunk, encoding)) {
+	      process.nextTick(callback);
       } else {
-        process.nextTick(callback);
+        child.stdin.once('drain', callback);
       }
     },
 
@@ -82,9 +65,9 @@ function createTransformStream(child) {
     },
   });
 
-  child.stdin.on('error', (e: Error & { code: string }) => {
+  child.stdin.on('error', (e) => {
     if (e.code === 'EPIPE') {
-      // zq finished before reading the file finished (i.e. head proc)
+      // finished before reading the file finished (i.e. head)
       stream.emit('end');
     } else {
       stream.destroy(e);
@@ -103,9 +86,49 @@ function createTransformStream(child) {
 }
 ```
 
-## How It Works
 
-First we create the transform stream which will be the return value. We implement two methods, `transform()` and `flush()`. The first is called when a chunk of data is read from a source, the second is called when there's no more data to read.
+Before we go into detail about what this code does, let's discuss a very confusing topic for me, NodeJS streams.
+
+## Understanding NodeJS Readables
+
+A [readable](https://nodejs.org/api/stream.html#readable-streams) is like a file. Call `readable.read()` to get the first chunk of data from the file.
+
+```js
+const chunk = readable.read()
+```
+
+But if I am creating my own readable, it starts off empty. There is no data to read. To add some, use the `readable.push()` method. 
+
+
+```js
+readable.push("my-chunk-of-data")
+```
+
+This was confusing to me, because I am essentially "writing" data into the readable. But don't say it like that, because the `write()`  method name is already taken as we'll see next.
+
+## Understanding NodeJS Writables
+
+A [writable](https://nodejs.org/api/stream.html#writable-streams) is a destination for data to land. The writable thing takes the data I give it with `writable.write()` and does something with it. To indicate that I have written all the data I have to it, I call `writable.end()`.
+
+```js
+writable.write("first chunk")
+writable.write("second chunk")
+writable.write("ok, i'm done")
+writable.end()
+```
+
+
+## Understanding NodeJS Duplex Streams
+
+To make everything super confusing, some objects can be both [readable and writable](https://nodejs.org/api/stream.html#duplex-and-transform-streams). This means I can call `.push()`, `.read()`, `.write()`, and `.end()` on these things.
+
+A special type of duplex stream is called the [transform stream](https://nodejs.org/api/stream.html#class-streamtransform). It provides a shorthand way of reading from a source and writing to a destination. That's what I used in the code above.
+
+## Detailed Code Breakdown
+
+First we create the transform stream which will be the return value. We implement two methods in the constructor, `transform()` and `flush()`. The first is called when a chunk of data is read from a source, the second is called when there's no more data to read.
+
+### The Transform Function
 
 ```js
 transform(chunk, encoding, callback) {
@@ -117,9 +140,11 @@ transform(chunk, encoding, callback) {
 }
 ```
 
-The transform function has the arguments `chunk`, `encoding`, and `callback`. The `chunk` is the bit of data that was just read and the `callback` is supposed to be called after we've processed it.
+The [transform function](https://nodejs.org/api/stream.html#transform_transformchunk-encoding-callback) has the arguments `chunk`, `encoding`, and `callback`. The `chunk` is the bit of data that was just read and the `callback` is supposed to be called after I've processed it.
 
-No we pass that bit of data to our child process by writing to the process' stdin. If `stdin.write()` returns true, it's ready to accept more, so we call the `callback` on the next tick. If it returns false, it wants us to wait for the "drain" event before continuing, so we call the  `callback` once that event is fired. This is called "respecting back-pressure." Respect.
+I pass that bit of data to my child process by writing to the process `stdin`. If `stdin.write()` returns true, it's ready to accept more data so I call the `callback` on the next tick. If it returns false, it wants me to wait for the `"drain"` event before continuing, so we call the  `callback` once that event is fired. This is called "respecting back-pressure." Respect.
+
+### The Flush Function
 
 ```js
 flush(callback) {
@@ -129,7 +154,9 @@ flush(callback) {
 }
 ```
 
-The flush function is called when we've finished reading the source and has one `callback` argument that should be called when we've cleaned everything up. In the body, we tell the child process' stdin that we will no longer write any more data. Then we wait for the child process' stdout to close, and call the `callback`.
+The [flush function](https://nodejs.org/api/stream.html#transform_flushcallback) is called when the stream has finished reading the source. It has one `callback` argument that should be called when I've cleaned everything up. In the body, I tell the child process' `stdin` that I will no longer write any more data. Then I wait for the child process' `stdout` to close before calling the `callback`.
+
+### Listening to stdout
 
 ```js
 child.stdout
@@ -137,7 +164,9 @@ child.stdout
 	.on('error', (e) => stream.destroy(e));
 ```
 
-This is where we "push" the data that comes out of our child process to the Transform stream. If there's an error, we call destroy and pass in the error.
+This is where I "push" the data that comes out of my child process into the transform stream. If there's an error, I call [destroy](https://nodejs.org/api/stream.html#writabledestroyerror) and pass in the error.
+
+### Listening to stderr
 
 ```js
 child.stderr
@@ -145,10 +174,12 @@ child.stderr
  	.on('error', (e) => stream.destroy(e));
 ```
 
-This is some error handling. In my case, if anything gets pushed into child.stderr, I consider it an error and destroy the transform stream providing the appropriate error text.
+This is some error handling. In my case, if anything gets pushed into `stderr`, I consider it an error and destroy the transform stream providing the appropriate error text.
+
+### Listening to stdin
 
 ```js
-child.stdin.on('error', (e: Error & { code: string }) => {
+child.stdin.on('error', (e) => {
 	if (e.code === 'EPIPE') {
 	  // the process finished before reading the file finished
 	  stream.emit('end');
@@ -158,14 +189,14 @@ child.stdin.on('error', (e: Error & { code: string }) => {
 });
 ```
 
-More error handling. In my case, sometimes the child process would finish before I had given it all of the file. (Think in the case where I only want the first 5 lines of a long file.) In that case, I would write the stdin above, but stdin was closed up. This would emit an error with a code "EPIPE". So I handle that by emitting the "end" event on the stream. This was the only way I could get it to work. I tried calling .end() but that didn't cut it. I had to emit the event manually.
+More error handling. Sometimes the child process would finish before I had given it all of the file. (The case where I only want the first 5 lines of a long file.) I write to `stdin`, but it's closed up and emits the error code `"EPIPE"`. I handle that by emitting the `"end"` event on the transform stream. This was the only way I could get it to work. I tried calling `.end()` but that didn't cut it. I had to emit the event manually.
 
 If the error code is anything else, I destroy the stream like above.
 
 ## article.end()
 
-Now you've got a way to turn a NodeJS ChildProcess into a Stream.Transform object, we can get back to piping everything everywhere. I hope this post saves you some time so that you can get back to your pipes. 
+That's is how I wrapped a NodeJS ChildProcess with a Stream.Transform object so that I can pipe data to and from it. I hope this saves you some time so that you can get back to your pipes.
 
-Here's me with my pipes in 2015!
+Here's me with my pipes in 2015.
 
 {{< figure src="bagpipes.jpeg" link="./bagpipes.jpeg">}}
