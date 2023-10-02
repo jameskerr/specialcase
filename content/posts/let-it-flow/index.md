@@ -17,7 +17,7 @@ Then there is my love. It too must leave. Out of me and into others.
 
 Of course, there is time. It's always leaving me. Coming and going. Moving. Flowing. Starting and ending and starting forever.
 
-And music, and sports, and art, and food, and God. They all flow. They all move.
+And music, and sports, and art, and food, and relationships, and kids, and feelings, and God. They all must flow in and flow out.
 
 It seems that, to achieve fulfillment, everything must come out of me. To hold on to anything is to poison myself. The whole gift of being that was given at my conception must flow out from my soul and into Life.  
 
