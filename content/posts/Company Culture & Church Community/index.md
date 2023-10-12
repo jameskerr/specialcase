@@ -2,6 +2,7 @@
 title: "Company Culture & Church Community"
 date: 2023-10-12T11:06:12-07:00
 draft: false
+description: An important lesson for churches hidden within a 37 Signals podcast on company culture.
 ---
 
 This is a great [podcast episode](https://twitter.com/37signals/status/1712039586442936350) about company culture. The gist is, it doesn't matter what people say or write about what the culture is. It's what people are actually doing that matters. In fact, it may be even worse if what is said about the culture doesn't match what people are actually doing.
