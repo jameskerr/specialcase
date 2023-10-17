@@ -37,4 +37,6 @@ A quote from my from my pastor last week at church has been rolling around in my
 
 > Money is a useful tool for moving things around, so that everyone can have what they need.
 
-It made me think of "everything I need." Truth is, I have too many things. I don't want more things around me. Yet, I always wish I had more money. For what? I don't want more stuff! I've got enough. I was then inspired to think of all the ways I have enough and write it up in a poem. It's a liberating idea to focus on.
+It made me think of "everything I need." Truth is, I have too many things. I don't want more things around me. Yet, I always wish I had more money. For what? I don't want more stuff! I've got enough. I was then inspired to think of all the ways I have enough and write it up in a poem. 
+
+What a liberating thing to realize.
