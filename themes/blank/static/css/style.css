@@ -115,6 +115,12 @@ blockquote {
   margin-bottom: 2rem;
 }
 
+@media screen and (max-width: 450px) {
+  blockquote {
+    margin-left: 1rem;
+  }
+}
+
 .post-title {
   margin-top: 6rem;
   margin-bottom: 6rem;
@@ -319,10 +325,16 @@ article h2 {
   width: 100%;
   max-width: 750px;
   position: relative;
-  border-radius: 30px;
   box-shadow:
     0px 50px 10px -40px hsl(5 10% 50%);
 }
+
+@media screen and (max-width: 450px) {
+  .featured-image {
+    box-shadow: none;
+  }
+}
+
 
 .list-layout {
   margin-top: 2rem;
