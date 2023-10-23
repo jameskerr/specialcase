@@ -6,6 +6,8 @@
   --layout-width: 720px;
   --body-font: "brother-1816";
   --heading-font: "brother-1816-printed";
+  --small-screen: 450px;
+
 }
 
 /*
@@ -96,6 +98,7 @@ h5,
 h6 {
   font-family: var(--heading-font);
   font-weight: 700;
+  line-height: 1.5;
 }
 
 figure {
@@ -131,6 +134,14 @@ blockquote {
 .post-title-link {
   font-size: 2.2rem;
   color: var(--body-color);
+  box-shadow: none;
+  margin-top: 0;
+}
+
+@media screen and (max-width: 450px) {
+  .post-title-link {
+    font-size: 1.8rem;
+  }
 }
 
 a {
@@ -164,34 +175,17 @@ a {
   width: 100%;
 }
 
+@media screen (max-width: 420px) {
+
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
 header {
-  display: flex;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  justify-content: center;
-  align-items: center;
-}
-
-header nav ul {
-  display: flex;
-  list-style-type: none;
-  gap: 1rem;
-  padding: 0;
-}
-
-@media screen and (max-width: 450px) {
-  header {
-    display: block;
-    margin: 0 auto;
-  }
-
-  .title {
-    text-align: center;
-  }
-
-  header nav ul {
-    justify-content: center;
-  }
 }
 
 main {
@@ -236,11 +230,6 @@ time {
 
 .post-summary-description {
   margin: 0.4rem 0;
-}
-
-.post-title-link {
-  box-shadow: none;
-  margin-top: 0;
 }
 
 article h1 {
@@ -318,6 +307,12 @@ article h2 {
   }
 }
 
+@media screen and (max-width: 450px) {
+  .comments {
+    padding: 2rem;
+  }
+}
+
 .featured-image {
   margin: 0 auto;
   margin-top: 4rem;
@@ -389,5 +384,11 @@ article h2 {
     &:hover {
       padding-left: 2rem;
     }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .read-more-links {
+    font-size: 0.8rem;
   }
 }
