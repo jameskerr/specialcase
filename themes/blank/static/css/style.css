@@ -29,6 +29,7 @@ body {
 }
 
 @media screen and (max-width: 450px) {
+
   html,
   body {
     font-size: 18.7px;
@@ -51,6 +52,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 /*
     6. Improve media defaults
   */
@@ -235,6 +237,7 @@ time {
 article h1 {
   font-size: 2.2rem;
 }
+
 article p,
 article pre {
   font-weight: 400;
@@ -266,7 +269,7 @@ code {
   font-size: 0.75rem;
 }
 
-pre > code {
+pre>code {
   padding: 0;
   line-height: 1.6;
   background-color: transparent !important;
@@ -287,7 +290,23 @@ article h2 {
 }
 
 .comments {
-  padding: 5rem 0;
+  margin-top: 15rem;
+  margin-bottom: 10rem;
+  border: 2px solid var(--primary-color);
+  box-shadow: 1px 1px var(--primary-color),
+    2px 2px var(--primary-color),
+    3px 3px var(--primary-color),
+    4px 4px var(--primary-color),
+    5px 5px var(--primary-color);
+  padding: 2rem 3rem;
+
+  & h2 {
+    margin-top: 0;
+  }
+
+  & p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .featured-image {
@@ -300,4 +319,8 @@ article h2 {
 
 .list-layout {
   margin-top: 2rem;
+}
+
+.obfuscate {
+  display: none;
 }

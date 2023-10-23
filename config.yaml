@@ -2,7 +2,6 @@ baseURL: "https://www.jameskerr.blog/"
 languageCode: "en-us"
 title: James Kerr
 theme: blank
-disqusShortname: jameskerrblog
 paginate: 100
 
 params:
