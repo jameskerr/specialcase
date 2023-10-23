@@ -42,7 +42,7 @@ body {
     5. Improve text rendering
   */
 body {
-  line-height: 1.66;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   font-family: var(--body-font), serif;
   color: var(--body-color);
@@ -101,6 +101,15 @@ h6 {
 figure {
   margin-left: 0;
   margin-right: 0;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: 5px solid var(--primary-color);
+  padding-left: 1em;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .post-title {
@@ -311,10 +320,13 @@ article h2 {
 
 .featured-image {
   margin: 0 auto;
-  margin-top: 1rem;
+  margin-top: 4rem;
   width: 100%;
   max-width: 750px;
   position: relative;
+  border-radius: 30px;
+  box-shadow:
+    0px 50px 10px -40px hsl(5 10% 50%);
 }
 
 .list-layout {
@@ -323,4 +335,59 @@ article h2 {
 
 .obfuscate {
   display: none;
+}
+
+.poem {
+  margin-bottom: 5rem;
+  max-width: max-content;
+  padding: 0.1rem 3rem;
+  font-style: italic;
+  line-height: 1;
+  margin-left: 2px;
+  border-left: 2px solid var(--primary-color);
+}
+
+
+.read-more-links {
+  display: flex;
+  justify-content: space-between;
+
+  & a {
+    padding: 1rem;
+    color: var(--body-color);
+    transition: all 400ms;
+
+    &:hover {
+      background-color: hsl(0 0% 98%);
+    }
+  }
+
+  &>* {
+    cursor: pointer;
+  }
+
+  & h3 {
+    margin: 0;
+  }
+
+  & label {
+    color: var(--primary-color);
+  }
+
+  .next-post {
+    text-align: right;
+    border-right: 5px solid var(--primary-color);
+
+    &:hover {
+      padding-right: 2rem;
+    }
+  }
+
+  .prev-post {
+    border-left: 5px solid var(--primary-color);
+
+    &:hover {
+      padding-left: 2rem;
+    }
+  }
 }

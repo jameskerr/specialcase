@@ -5,20 +5,18 @@ draft: false
 description: A poem about jesting with friends.
 ---
 
-*Swords drawn*  
-*Draw blood*  
-*Blood in the water*   
+{{< poem >}}
 
-*Recover*   
-*Respond*  
-*Respect*  
+Swords drawn, Draw blood, Blood in the water
 
-*Cross the line*  
-*Cut too deep*  
-*Feel the heat*  
+Recover, Respond, Respect
 
-*Reach out a hand*  
-*Pull up to stand*  
-*Love wrapped up in a sheath*  
+Cross the line, Cut too deep, Feel the heat
+
+Reach out a hand, Pull up to stand
+
+Love wrapped up in a sheath
+
+{{< /poem >}}
 
 This was written on a backpacking trip where eight men hiked for four days in the wilderness. Whenever a group of friends are together, you're bound to find this battlefield.
