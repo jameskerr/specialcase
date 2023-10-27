@@ -88,4 +88,4 @@ Is there an app that makes confetti fall from the top of the screen? That's the 
 
 ## Video Demo
 
-To see this all in action, here's a video of me creating, writing, and publishing this exact post that you're reading!
+To see this all in action, here's a video of me creating, writing, and publishing this exact post that you're reading! Enjoy.
