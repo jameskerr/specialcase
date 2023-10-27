@@ -406,3 +406,17 @@ article h2 {
     font-size: 0.8rem;
   }
 }
+
+.note {
+  background-color: hsl(352 87% 10% / 0.04);
+  padding: 1.5rem 2rem;
+  font-size: 0.85rem;
+
+  & h6 {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.8rem;
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+}

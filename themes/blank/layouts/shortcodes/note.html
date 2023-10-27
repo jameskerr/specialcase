@@ -1,0 +1,4 @@
+<div class="note">
+  <h6>{{ with .Get 0 }}{{ . }}{{ else }}Note{{ end }}</h6>
+  {{ .Inner | markdownify }}
+</div>
