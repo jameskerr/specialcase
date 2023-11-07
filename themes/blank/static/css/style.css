@@ -5,9 +5,9 @@
   --pre-background-color: hsl(352 87% 10% / 0.04);
   --layout-width: 720px;
   --body-font: "brother-1816";
+  --mono-font: "RecVar";
   --heading-font: "brother-1816-printed";
   --small-screen: 450px;
-
 }
 
 /*
@@ -257,7 +257,7 @@ pre {
 }
 
 code {
-  font-family: source-code-pro, monospace;
+  font-family: var(--mono-font), monospace;
   font-style: normal;
   border-radius: 10px;
   background-color: var(--pre-background-color) !important;
