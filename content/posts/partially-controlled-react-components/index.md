@@ -26,7 +26,7 @@ As a library author, I want the "Getting Started " experience to be dead simple.
 <Tree initialData={myData} />
 ```
 
-By default, the component takes care of everything internally: selection, drag-and-drop, and renaming. As it integrates into an app, users can take control of **only the parts they need**. Common needs are persisting the state, initializing the state, or changing the tree from elsewhere in the app. Co
+By default, the component takes care of everything internally: selection, drag-and-drop, and renaming. As it integrates into an app, users can take control of **only the parts they need**. Common needs are persisting the state, initializing the state, or changing the tree from elsewhere in the app.
 
 ## Declarative vs Imperative Control
 
