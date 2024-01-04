@@ -9,9 +9,11 @@ description: |
 
 I've got an [electron app](https://github.com/brimdata/brim) that needs to be built on all three platforms. I've got three workflow files all with slightly differing steps. Is there way to share whats common? Yes. It's called [composite actions](https://docs.github.com/en/actions/creating-actions/about-custom-actions#composite-actions).
 
+**Update (Jan 4, 2024)**: There is another way to reuse workflows thats described in the [reusing workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows#creating-a-reusable-workflow) section of the docs.
+
 ## What is a Composite Action?
 
-The name is not the most intuitive (why not "shared action"?), but it's a group of steps that are intended to be "used" within a workflow file. This is GitHub's solution for sharing steps between workflows. Here is an example of the simplest composite action. 
+The name is not the most intuitive (why not "shared action"?), but it's a group of steps that are intended to be "used" within a workflow file. This is GitHub's solution for sharing steps between workflows. Here is an example of the simplest composite action.
 
 ```yaml
 name: "My Shared Steps"
@@ -22,29 +24,25 @@ runs:
       shell: bash
 ```
 
-First, make a file like this and set the top-level `runs:` property to the string `"composite"`.  
+First, make a file like this and set the top-level `runs:` property to the string `"composite"`.
 
 Also, [Action](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions) files are different from [Workflow](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) files. Once such difference is that your steps must specify a [shell](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) property if they use `run:` . That knowledge will save you from this error.
 
 ![Shell Error](/img/sharing-steps-in-github-action-workflows/shell.png)
 
-
-
 ## Where do I put this file?
 
-It can go anywhere in your repo. Or in it's own repo.  But, I want mine in the `.github/actions` folder at the root of my repository. Something like:
+It can go anywhere in your repo. Or in it's own repo. But, I want mine in the `.github/actions` folder at the root of my repository. Something like:
 
 ```
 .github/actions/my-shared-steps/action.yml
 ```
 
-Notice that I needed to create a directory containing a file called `action.yml`. This is the required structure for an action. I tried naming the file something else and it didn't like that. 
+Notice that I needed to create a directory containing a file called `action.yml`. This is the required structure for an action. I tried naming the file something else and it didn't like that.
 
 ![Action Error](/img/sharing-steps-in-github-action-workflows/action.png)
 
 > Important: the action must be a directory containing an action.yml file.
-
-
 
 ## How do I use it?
 
@@ -56,13 +54,11 @@ steps:
 	- uses: ./.github/actions/my-shared-steps
 ```
 
-Since I am using an [action that is in our repo](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-using-an-action-in-the-same-repository-as-the-workflow), I specify the path to the file from the root of the repository starting with a `./` (that's required).  If your action is not in the repo, [here are your options](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses) for using it.
+Since I am using an [action that is in our repo](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#example-using-an-action-in-the-same-repository-as-the-workflow), I specify the path to the file from the root of the repository starting with a `./` (that's required). If your action is not in the repo, [here are your options](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses) for using it.
 
 ## Passing Data to the Action
 
 More errors revealed that I couldn't use the `${{ secrets }}` variable in my composite action. I had to pass it data using the `inputs:` property in the action, and the `with:` property in the workflow. Here's an example:
-
-
 
 ```yaml
 # .github/actions/build-win/action.yml
@@ -109,8 +105,6 @@ jobs:
           gh_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-
-
 ## Can I publish it?
 
 Yes. This article in the docs titled "[Creating a composite action](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action)" shows how to make a compsite action in it's own repo with inputs and outputs, then uses it in a workflow.
@@ -120,3 +114,5 @@ I've now DRY'd out my CI workflows with composite actions. One installs Go and N
 _Post Script_
 
 Debugging CI is a pain. You know. You edit a workflow file, you commit, you push, you open the browser, you wait, it fails, your YAML was not indented enough, repeat. It sucks. There has got to be a better way. To start, it would be great to at least validate my workflow file with some CLI tool before I push. Or a local VM I could test it in? If this exists already, someone please tell me.
+
+**Update (Jan 4, 2024)**: I have been informed there is a tool for this called [act](https://github.com/nektos/act). I have not used it yet, but the repo has 46K stars so they must be doing something right.
