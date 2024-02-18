@@ -4,12 +4,16 @@
   --body-color: hsl(352 87% 10%);
   --pre-background-color: hsl(352 87% 10% / 0.04);
   --layout-width: 720px;
-  --body-font: "brother-1816";
+  --measure: 67ch;
+  --body-font: "Sole Serif Small", "brother-1816";
   --mono-font: "RecVar";
-  --heading-font: "brother-1816-printed";
+  --heading-font: "Azo Sans";
   --small-screen: 450px;
 }
 
+h1 {
+  font-weight: 900;
+}
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -25,17 +29,8 @@
 html,
 body {
   height: 100%;
-  font-size: 18px;
   padding: 0;
   margin: 0;
-}
-
-@media screen and (max-width: 450px) {
-
-  html,
-  body {
-    font-size: 16px;
-  }
 }
 
 /*
@@ -44,10 +39,10 @@ body {
     5. Improve text rendering
   */
 body {
-  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   font-family: var(--body-font), serif;
   color: var(--body-color);
+  font-size: var(--step-0);
 }
 
 body {
@@ -90,6 +85,22 @@ h6 {
   overflow-wrap: break-word;
 }
 
+h1 {
+  font-size: var(--step-4);
+}
+
+h2 {
+  font-size: var(--step-3);
+}
+
+h3 {
+  font-size: var(--step-2);
+}
+
+h4 {
+  font-size: var(--step-1);
+}
+
 h1,
 h2,
 h3,
@@ -97,8 +108,6 @@ h4,
 h5,
 h6 {
   font-family: var(--heading-font);
-  font-weight: 700;
-  line-height: 1.5;
 }
 
 figure {
@@ -130,24 +139,11 @@ blockquote {
   margin: 0;
 }
 
-.post-title time {
-  font-size: 0.7rem;
-  display: block;
-  margin: 2rem 0;
-  font-weight: 100;
-}
-
 .post-title-link {
   font-size: 2.2rem;
   color: var(--body-color);
   box-shadow: none;
   margin-top: 0;
-}
-
-@media screen and (max-width: 450px) {
-  .post-title-link {
-    font-size: 1.8rem;
-  }
 }
 
 a {
@@ -159,7 +155,7 @@ a {
 
 .wrap {
   width: 100%;
-  max-width: var(--layout-width);
+  max-width: var(--measure);
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -170,15 +166,6 @@ a {
   display: flex;
   align-items: center;
   margin: 0;
-}
-
-.title h1 {
-  line-height: 1.5rem;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-  margin: 0;
-  white-space: nowrap;
-  width: 100%;
 }
 
 header {
@@ -230,16 +217,6 @@ time {
   margin: 0.4rem 0;
 }
 
-article h1 {
-  font-size: 2.2rem;
-}
-
-article p,
-article pre {
-  font-weight: 400;
-  margin-top: 1em;
-}
-
 pre {
   overflow: auto;
   padding: 1rem;
@@ -265,7 +242,7 @@ code {
   font-size: 0.75rem;
 }
 
-pre>code {
+pre > code {
   padding: 0;
   line-height: 1.6;
   background-color: transparent !important;
@@ -289,10 +266,8 @@ article h2 {
   margin-top: 15rem;
   margin-bottom: 10rem;
   border: 2px solid var(--primary-color);
-  box-shadow: 1px 1px var(--primary-color),
-    2px 2px var(--primary-color),
-    3px 3px var(--primary-color),
-    4px 4px var(--primary-color),
+  box-shadow: 1px 1px var(--primary-color), 2px 2px var(--primary-color),
+    3px 3px var(--primary-color), 4px 4px var(--primary-color),
     5px 5px var(--primary-color);
   padding: 2rem 3rem;
 
@@ -305,20 +280,13 @@ article h2 {
   }
 }
 
-@media screen and (max-width: 450px) {
-  .comments {
-    padding: 2rem;
-  }
-}
-
 .featured-image {
   margin: 0 auto;
   margin-top: 4rem;
   width: 100%;
   max-width: 750px;
   position: relative;
-  box-shadow:
-    0px 50px 10px -40px hsl(5 10% 50%);
+  box-shadow: 0px 50px 10px -40px hsl(5 10% 50%);
 }
 
 @media screen and (max-width: 450px) {
@@ -326,7 +294,6 @@ article h2 {
     box-shadow: none;
   }
 }
-
 
 .list-layout {
   margin-top: 2rem;
@@ -345,17 +312,10 @@ article h2 {
   border-left: 2px solid var(--primary-color);
   line-height: 1.5;
 
-  &>* {
+  & > * {
     margin: 0.5rem 0;
   }
 }
-
-@media screen and (max-width: 450px) {
-  .poem {
-    padding: 0.1rem 1rem;
-  }
-}
-
 
 .read-more-links {
   display: flex;
@@ -371,7 +331,7 @@ article h2 {
     }
   }
 
-  &>* {
+  & > * {
     cursor: pointer;
   }
 
@@ -401,22 +361,8 @@ article h2 {
   }
 }
 
-@media screen and (max-width: 450px) {
-  .read-more-links {
-    font-size: 0.8rem;
-  }
-}
-
 .note {
   background-color: hsl(352 87% 10% / 0.04);
   padding: 1.5rem 2rem;
-  font-size: 0.85rem;
-
-  & h6 {
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-size: 0.8rem;
-    margin: 0;
-    margin-bottom: 0.5rem;
-  }
+  font-size: var(--step--1);
 }
