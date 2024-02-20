@@ -9,9 +9,13 @@
 	<meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
 	<meta name="author" content="{{ $.Site.Params.author }}" />
 	<link rel="stylesheet" href="https://use.typekit.net/kho2zxj.css">
+	
 	<link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}">
 	<link rel="stylesheet" href="{{ "css/config.css" | relURL }}">
-	<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+	<link rel="stylesheet" href="{{ "css/reset.css" | relURL }}">
+	<link rel="stylesheet" href="{{ "css/global.css" | relURL }}">
+	<link rel="stylesheet" href="{{ "css/layouts.css" | relURL }}">
+	<link rel="stylesheet" href="{{ "css/blocks.css" | relURL }}">
 	<link rel="stylesheet" href="{{ "css/syntax.css" | relURL }}">
 	
 	{{ template "_internal/twitter_cards.html" . }}
