@@ -23,7 +23,7 @@
   @utopia spaceScale({
     minSize: 14,
     maxSize: 18,
-    positiveSteps: [1.5, 2, 3, 4, 6],
+    positiveSteps: [1.5, 2, 3, 4, 7],
     negativeSteps: [0.75, 0.5],
     customSizes: ['s-l'],
   });

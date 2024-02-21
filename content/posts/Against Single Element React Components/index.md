@@ -5,32 +5,38 @@ draft: false
 description: Don't wrap single elements in React components just to style them.
 ---
 
-It's not uncommon to see this type of single element React component.
+{{< initial-cap >}} It's not uncommon {{< /initial-cap >}} to see this type of single element React component.
 
 ```jsx
-function Title({children, ...rest}) {
-  return <h1 {...rest}>{children}</h1>
+function Title({ children, ...rest }) {
+  return <h1 {...rest}>{children}</h1>;
 }
 ```
 
 If you use a library like [styled-components](https://styled-components.com/), you're very much encouraged to write in this way.
 
 ```jsx
-const Nav = styled.nav``
-const List = styled.ul``
-const Item = styled.li``
-const Link = styled.a``
+const Nav = styled.nav``;
+const List = styled.ul``;
+const Item = styled.li``;
+const Link = styled.a``;
 
 function MyApp() {
-	return (
-		<Nav>
-			<List>
-				<Item><Link href="/home">Home</Link></Item>
-				<Item><Link href="/blog">Blog</Link></Item>
-				<Item><Link href="/about">About</Link></Item>
-			</List>
-		</Nav>
-	)
+  return (
+    <Nav>
+      <List>
+        <Item>
+          <Link href="/home">Home</Link>
+        </Item>
+        <Item>
+          <Link href="/blog">Blog</Link>
+        </Item>
+        <Item>
+          <Link href="/about">About</Link>
+        </Item>
+      </List>
+    </Nav>
+  );
 }
 ```
 
@@ -43,16 +49,16 @@ Take a look at that `<Link />` component. What props does it take? Where is the 
 Now take a look at this code:
 
 ```html
-<a>
+<a></a>
 ```
 
 No scrolling needed. No lookups needed. We all know _exactly_ what an anchor tag does. And if we don't remember something, there are loads of docs on this and every other HTML element.
 
-We've all put countless hours in learning HTML. Hiding the underlying element with a tiny React component throws all that knowledge away. 
+We've all put countless hours in learning HTML. Hiding the underlying element with a tiny React component throws all that knowledge away.
 
 ## Components that Slightly Change the API
 
-To make this worse, some components slightly change the established HTML API. I see it often with buttons. 
+To make this worse, some components slightly change the established HTML API. I see it often with buttons.
 
 We all know this API.
 
@@ -70,24 +76,29 @@ Now everyone needs to memorize or lookup the new API whenever they need a button
 
 ## The Solution is HTML with a Class Attribute
 
-When we use the single element component pattern, we give up the well-known HTML APIs to encapsulate some visual styles. Not a fair trade. Especially when HTML has a built-in, stone-age solution for encapsulating visual styles: **the class attribute**. 
+When we use the single element component pattern, we give up the well-known HTML APIs to encapsulate some visual styles. Not a fair trade. Especially when HTML has a built-in, stone-age solution for encapsulating visual styles: **the class attribute**.
 
 ```jsx
-import styles from "./app.module.css"
+import styles from "./app.module.css";
 
 function MyApp() {
-	return (
-		<nav className={styles.mainNav}>
-			<li><a href="/home">Home</a></li>
-			<li><a href="/blog">Blog</a></li>
-			<li><a href="/about">About</a></li>
-		</nav>
-	)
+  return (
+    <nav className={styles.mainNav}>
+      <li>
+        <a href="/home">Home</a>
+      </li>
+      <li>
+        <a href="/blog">Blog</a>
+      </li>
+      <li>
+        <a href="/about">About</a>
+      </li>
+    </nav>
+  );
 }
 ```
 
 Nobody is going to wonder what's going on here ☝️.
-
 
 ## Conclusion
 

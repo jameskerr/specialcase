@@ -5,7 +5,7 @@ description: I like Hugo because it's free, fast, and fun to develop. But look a
 draft: false
 ---
 
-I love this quote by John Cutler from his post on [disincentives](https://cutlefish.substack.com/p/tbm-3752-disincentives).
+{{< initial-cap >}}I love{{< /initial-cap >}} this quote by John Cutler from his post on [disincentives](https://cutlefish.substack.com/p/tbm-3752-disincentives).
 
 > "Good things can happen when you make it easier to do good things." --John Cutler
 

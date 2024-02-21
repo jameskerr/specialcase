@@ -5,6 +5,8 @@ draft: false
 description: A helpful way to think about income and spending.
 ---
 
+{{< initial-cap >}}There are{{< /initial-cap >}} only two types of transactions.
+
 1. The ones you are present for.
 2. The ones you are not.
 

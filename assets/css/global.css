@@ -68,3 +68,16 @@ pre {
 time {
   font-size: var(--step--1);
 }
+
+em {
+  font-weight: bold;
+}
+
+blockquote {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  font-size: var(--step-1);
+  /* font-style: italic; */
+  border-inline-start: 3px solid var(--color-primary);
+  padding-inline-start: var(--space-s-l);
+}
