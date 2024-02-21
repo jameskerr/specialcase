@@ -3,6 +3,7 @@
     --color-dark: #352621;
     --color-primary: rgb(241, 114, 51);
     --font-base: "Circe";
+    --font-heading: "circe-slab-b";
     --gutter: var(--space-s-l);
     --line-height: 1.5;
     --measure: 65ch;
