@@ -1,0 +1,14 @@
+.site-header {
+  padding-block: var(--gutter);
+}
+
+.site-footer {
+  margin-block-start: var(--space-l-xl);
+}
+.prose {
+  --flow-space: 1.5em;
+}
+.article {
+  max-width: var(--measure);
+  margin: auto;
+}

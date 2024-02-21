@@ -1,17 +1,8 @@
 {{ define "main" }}
-<main class="list-layout">
-	<div class="wrap">
-		{{ if or .Title .Content }}
-		<div>
-			{{ with .Content }}<div>{{ . }}</div>{{ end }}
-		</div>
-		{{ end }}
-
-		{{ range .Paginator.Pages }}
-		{{ .Render "summary" }}
-		{{ end }}
-		{{ partial "pagination.html" . }}
-	</div>
+<main class="wrap">
+  <div class="flow">
+    {{ range .Paginator.Pages }} {{ .Render "summary" }} {{ end }}
+  </div>
+  {{ partial "pagination.html" . }}
 </main>
-{{ partial "sidebar.html" . }}
-{{ end }}
+{{ partial "sidebar.html" . }} {{ end }}

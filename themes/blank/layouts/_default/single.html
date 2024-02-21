@@ -1,62 +1,46 @@
 {{ define "main" }}
-<main>
-	<article>
-		
+<main class="wrap">
+	<article class="flow prose center">
 		{{ with (.Resources.ByType "image").GetMatch "*cover*" }}
-			  <img src="{{ .RelPermalink }}" class="featured-image" />
+		<img src="{{ .RelPermalink }}" class="featured-image" />
 		{{ end }}
-		
-		
-		<div class="wrap">
-			<div class="post-title">
-				<h1>{{ .Title }}</h1>
-				<time datetime="{{ .Date.Format " 2006-01-02T15:04:05" }}">{{ .Date.Format "January 2, 2006" }}</time>
-			</div>
+		<div class="region flow text-center">
+			<h1>{{ .Title }}</h1>
+			<time datetime="{{ .Date.Format " 2006-01-02T15:04:05" }}">{{ .Date.Format "January 2, 2006" }}</time>
 		</div>
-		
-		<div class="wrap">
-			<div>
-				{{ .Content }}
-			</div>
-			
-			{{ with .Params.tags }}
-			<div>
-				<ul id="tags">
-					{{ range . }}
-					<li><a href="{{ " /tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
-					{{ end }}
-				</ul>
-			</div>
-			{{ end }}
-			
-			
-		</div>
-		
+		{{ .Content }}
 	</article>
-	<div class="wrap">
-		<div class="comments">
-			<h2>Comments</h2>
-			<p>Please email your thoughts to my personal address.
-				<b>kerr<span class="obfuscate">to-prevent-spam</span>@h<span class="obfuscate">to-prevent-spam</span>ey.com<span class="obfuscate">to-prevent-spam</span></b>
-			<p>I would love to hear from you.</p>
-		</div>
-	</div>
-
-	<div class="wrap">
-		<div class="read-more-links">
+	{{ with .Params.tags }}
+	<nav class="center">
+		<ul class="cluster">
+			{{ range . }}
+			<li><a href="{{ " /tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+			{{ end }}
+		</ul>
+	</nav>
+	{{ end }}
+	<footer class="region flow center">
+		<h4>Comments</h4>
+		<p>
+			Please email your thoughts to
+			<b>kerr<span class="visually-hidden">to-prevent-spam</span>@h<span class="visually-hidden">to-prevent-spam</span>ey.com<span class="visually-hidden">to-prevent-spam</span></b>,
+			my personal address.
+			I would love to hear from you.
+		</p>
+	</footer>
+	<nav class="region cluster justify-between w-full">
 		{{ with .PrevInSection }}
-  			<a href="{{ .Permalink }}" class="prev-post">
-				<label>Previous</label>
-				<h3>{{ .Title }}</h3>
-			</a>
+		<div>
+			<label>Previous</label>
+			<h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+		</div>
 		{{ end }}
 		{{ with .NextInSection }}
-  			<a href="{{ .Permalink }}" class="next-post">
-				<label>Next</label>
-				<h3>{{ .Title }}</h3>
-			</a>
-		{{ end }}
+		<div class="text-right" style="margin-inline-start: auto">
+			<label>Next</label>
+			<h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
 		</div>
-	</div>
+		{{ end }}
+	</nav>
 </main>
 {{ end }}

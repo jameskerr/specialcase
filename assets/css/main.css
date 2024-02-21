@@ -1,0 +1,10 @@
+@import "tailwindcss/base";
+@import "assets/css/reset";
+@import "tailwindcss/components";
+@import "assets/css/variables";
+@import "assets/css/global";
+@import "assets/css/compositions";
+@import "assets/css/syntax";
+@import "assets/css/blocks";
+@import "tailwindcss/utilities";
+@import "assets/css/utilities";

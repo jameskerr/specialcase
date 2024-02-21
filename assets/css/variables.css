@@ -1,0 +1,29 @@
+:root {
+    --color-light: rgb(255, 245, 239);
+    --color-dark: #352621;
+    --color-primary: rgb(241, 114, 51);
+    --font-base: "Circe";
+    --gutter: var(--space-s-l);
+    --line-height: 1.5;
+    --measure: 65ch;
+    --radius: 8px;
+}
+
+:root {
+  @utopia typeScale({
+    minFontSize: 19,
+    maxFontSize: 21,
+    minTypeScale: 1.175,
+    maxTypeScale: 1.28,
+    positiveSteps: 5,
+    negativeSteps: 2,
+  });
+
+  @utopia spaceScale({
+    minSize: 14,
+    maxSize: 18,
+    positiveSteps: [1.5, 2, 3, 4, 6],
+    negativeSteps: [0.75, 0.5],
+    customSizes: ['s-l'],
+  });
+}
