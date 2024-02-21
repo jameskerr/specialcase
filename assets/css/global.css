@@ -57,6 +57,7 @@ pre {
   border-radius: var(--radius);
   tab-size: 2;
   max-width: 80ch;
+  overflow-x: auto;
 }
 
 time {
