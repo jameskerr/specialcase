@@ -25,6 +25,11 @@ menus:
     - name: RSS
       url: /index.xml
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 # module:
 #   mounts:
 #     - source: assets

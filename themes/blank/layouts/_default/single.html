@@ -4,11 +4,13 @@
 		{{ with (.Resources.ByType "image").GetMatch "*cover*" }}
 		<img src="{{ .RelPermalink }}" class="featured-image" />
 		{{ end }}
-		<div class="region flow text-center">
+		<div class="region flow">
 			<h1>{{ .Title }}</h1>
 			<time datetime="{{ .Date.Format " 2006-01-02T15:04:05" }}">{{ .Date.Format "January 2, 2006" }}</time>
 		</div>
-		{{ .Content }}
+		<div class="flow" is="prose-content">
+			{{ .Content }}
+		</div>
 	</article>
 	{{ with .Params.tags }}
 	<nav class="center">
@@ -19,8 +21,7 @@
 		</ul>
 	</nav>
 	{{ end }}
-	<footer class="region flow center">
-		<h4>Comments</h4>
+	<footer class="region flow center" style="--region-space: 12rem">
 		<p>
 			Please email your thoughts to
 			<b>kerr<span class="visually-hidden">to-prevent-spam</span>@h<span class="visually-hidden">to-prevent-spam</span>ey.com<span class="visually-hidden">to-prevent-spam</span></b>,

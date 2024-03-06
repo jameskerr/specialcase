@@ -18,6 +18,11 @@
 	{{ template "_internal/opengraph.html" . }}
 
 	<script defer data-domain="jameskerr.blog" src="https://plausible.io/js/script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.3/dist/turbo.es2017-umd.min.js"></script>
+
+	{{ with resources.Get "js/main.js" | js.Build (dict "format" "esm")}}
+		<script defer type="module" src="{{ .RelPermalink }}"></script>
+	{{ end }}
 
 
 	{{/*  From Favicon Generator  */}}

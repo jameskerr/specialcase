@@ -4,7 +4,6 @@ body {
   font-size: var(--step-0);
   font-family: var(--font-base);
   line-height: var(--line-height);
-  font-feature-settings: "ss05";
 }
 
 h1,
@@ -12,7 +11,7 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
-  font-feature-settings: "ss02";
+  font-weight: var(--weight-heading);
 }
 
 h1 {
@@ -61,7 +60,6 @@ pre {
   font-size: var(--step--1);
   border-radius: var(--radius);
   tab-size: 2;
-  max-width: 80ch;
   overflow-x: auto;
 }
 
@@ -80,4 +78,16 @@ blockquote {
   /* font-style: italic; */
   border-inline-start: 3px solid var(--color-primary);
   padding-inline-start: var(--space-s-l);
+}
+
+:not(pre) > code {
+  background: var(--color-gray);
+  font-size: var(--step--1);
+  display: inline-block;
+  padding-inline: 0.75ch;
+  border-radius: 0.5ch;
+}
+
+abbr {
+  font-size: 0.9em;
 }

@@ -1,13 +1,15 @@
 :root {
-    --color-light: rgb(255, 245, 239);
+    --color-light: hsl(63.61deg 100% 96.86%);
     --color-dark: #352621;
     --color-primary: rgb(241, 114, 51);
-    --font-base: "Circe";
-    --font-heading: "circe-slab-b";
+    --color-gray: hsl(64 21% 90% / 1);
+    --font-base: rooney-web, serif;
+    --font-heading: rooney-web, serif;
     --gutter: var(--space-s-l);
-    --line-height: 1.5;
-    --measure: 65ch;
+    --line-height: 1.6;
+    --measure: 60ch;
     --radius: 8px;
+    --weight-heading: 500;
 }
 
 :root {
