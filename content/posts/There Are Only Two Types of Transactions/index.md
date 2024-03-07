@@ -3,6 +3,7 @@ title: "There Are Only Two Types of Transactions"
 date: 2023-11-08T09:40:46-08:00
 draft: false
 description: A helpful way to think about income and spending.
+tags: ["budgets", "money"]
 ---
 
 {{< initial-cap >}}There are{{< /initial-cap >}} only two types of transactions.

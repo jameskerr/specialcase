@@ -3,6 +3,7 @@ title: "Against Single Element React Components"
 date: 2023-11-06T15:51:23-08:00
 draft: false
 description: Don't wrap single elements in React components just to style them.
+tags: ["react", "javascript"]
 ---
 
 {{< initial-cap >}} It's not uncommon {{< /initial-cap >}} to see this type of single element React component.

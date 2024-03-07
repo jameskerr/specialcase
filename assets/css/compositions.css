@@ -19,3 +19,8 @@
   width: 100%;
   max-width: var(--measure);
 }
+.fifty {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: var(--gutter);
+}

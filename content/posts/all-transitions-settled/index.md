@@ -3,6 +3,7 @@ title: "Transitions All Settled"
 date: 2024-03-05T20:26:00-08:00
 draft: false
 description: A function that waits for CSS transitions to settle.
+tags: ["javascript"]
 ---
 
 I just published a JavaScript library called [transitions-all-settled](https://github.com/jameskerr/transitions-all-settled) that allows you to wait for CSS transitions to settle before you do something.
@@ -10,6 +11,8 @@ I just published a JavaScript library called [transitions-all-settled](https://g
 The package exports a single function that accepts an HTML node and returns a promise. The promise resolves when all CSS transitions on the HTML node and its children have settled.
 
 ```js
+import { transitionsAllSettled } from "transitions-all-settled";
+
 await transitionsAllSettled(node);
 ```
 
@@ -20,15 +23,11 @@ This is useful for exit animations to wait for all CSS transitions to settle bef
 
 Here is a demo. Click any square.
 
-{{< html >}}
-
 <div id="canvas" class="flow">
     <div class="square first"></div>
     <div class="square second"></div>
     <div class="square third"></div>
 </div>
-
-{{< /html >}}
 
 Here's the code that makes that happen. Here's the HTML.
 
@@ -46,7 +45,7 @@ The CSS.
 .square {
   width: var(--step-3);
   height: var(--step-3);
-  background-color: var(--color-dark);
+  background-color: var(--color-text);
   transition-duration: 1s;
 }
 .clicked .square {
@@ -67,7 +66,7 @@ The CSS.
 Here's the JavaScript.
 
 ```js
-import { transitionsAllSettled } from "https://esm.run/transitions-all-settled";
+import { transitionsAllSettled } from "transitions-all-settled";
 
 const canvas = document.getElementById("canvas");
 
@@ -83,13 +82,11 @@ small. Take a look at the source to see exactly how it works.
 
 GitHub: [jameskerr/transitions-all-settled](https://github.com/jameskerr/transitions-all-settled)
 
-{{< html >}}
-
 <style>
   .square {
     width: var(--step-3);
     height: var(--step-3);
-    background-color: var(--color-dark);
+    background-color: var(--color-text);
     transition-duration: 1s;
   }
   .clicked .square {
@@ -117,5 +114,3 @@ GitHub: [jameskerr/transitions-all-settled](https://github.com/jameskerr/transit
     alert("Transitions All Settled");
   });
 </script>
-
-{{< /html >}}

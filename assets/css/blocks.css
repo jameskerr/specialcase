@@ -8,7 +8,27 @@
 .prose {
   --flow-space: 1.5em;
 }
-.article {
-  max-width: var(--measure);
-  margin: auto;
+.hashtag {
+  background: var(--color-bg-highlight);
+  padding-inline: 0.3em;
+  line-height: 0.65;
+  color: var(--color-text-highlight);
+  display: inline-block;
+  font-size: var(--step--1);
+  font-style: italic;
+  transition: all 300ms;
+
+  &:hover {
+    line-height: 1.5;
+    background: var(--color-text);
+    color: var(--color-bg);
+    border-radius: 7px;
+  }
+}
+.read-next {
+  background: var(--color-bg);
+  /* box-shadow: 0px 1px 4px -1px var(--color-text-highlight); */
+  padding: var(--gutter);
+  border-radius: 8px;
+  /* border: 1px solid var(--color-primary); */
 }

@@ -7,7 +7,7 @@ paginate: 100
 params:
   author: James Kerr
   description: Thoughts about programming and the shared human experience.
-  twitter: specialCaseDev
+  mastodon_url: https://mastodon.social/@jameskerr
   images:
     - /img/site-thumbnail-image-2.jpg
 
@@ -18,8 +18,8 @@ markup:
 
 menus:
   links:
-    - name: Twitter
-      url: https://twitter.com/specialCaseDev
+    - name: Mastodon
+      url: https://mastodon.social/@jameskerr
     - name: GitHub
       url: https://github.com/jameskerr
     - name: RSS

@@ -1,6 +1,6 @@
 body {
-  background-color: var(--color-light);
-  color: var(--color-dark);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   font-size: var(--step-0);
   font-family: var(--font-base);
   line-height: var(--line-height);
@@ -45,7 +45,7 @@ p {
 }
 
 a {
-  color: var(--color-dark);
+  color: var(--color-text);
   text-decoration-color: var(--color-primary);
 }
 
@@ -54,7 +54,7 @@ header {
 }
 
 pre {
-  background-color: var(--color-dark);
+  background-color: var(--color-bg);
   color: var(--color-light);
   padding: var(--space-xs-s);
   font-size: var(--step--1);
@@ -81,13 +81,20 @@ blockquote {
 }
 
 :not(pre) > code {
-  background: var(--color-gray);
+  background: var(--color-bg-highlight);
+  color: var(--color-text-highlight);
   font-size: var(--step--1);
   display: inline-block;
-  padding-inline: 0.75ch;
+  padding-inline: 0.65ch;
   border-radius: 0.5ch;
+  line-height: 1.28;
 }
 
 abbr {
   font-size: 0.9em;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-primary);
 }

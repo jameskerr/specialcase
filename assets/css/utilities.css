@@ -28,3 +28,18 @@ Consistent block padding for page sections
 .font-base {
   font-family: var(--font-base);
 }
+.step--1 {
+  font-size: var(--step--1);
+}
+.step--2 {
+  font-size: var(--step--2);
+}
+.bg-highlight {
+  background: var(--color-bg-highlight);
+}
+.text-highlight {
+  color: var(--color-text-highlight);
+}
+.overlap {
+  margin-block-start: -6rem;
+}

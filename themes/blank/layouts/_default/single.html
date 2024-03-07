@@ -1,47 +1,49 @@
 {{ define "main" }}
-<main class="wrap">
-	<article class="flow prose center">
+<main>
+	<article class="wrap flow text-center">
 		{{ with (.Resources.ByType "image").GetMatch "*cover*" }}
-		<img src="{{ .RelPermalink }}" class="featured-image" />
+			<img src="{{ .RelPermalink }}" class="featured-image" />
 		{{ end }}
-		<div class="region flow">
-			<h1>{{ .Title }}</h1>
-			<time datetime="{{ .Date.Format " 2006-01-02T15:04:05" }}">{{ .Date.Format "January 2, 2006" }}</time>
+		<time datetime="{{ .Date.Format " 2006-01-02T15:04:05" }}">{{ .Date.Format "January 2, 2006" }}</time>	
+		<h1 class="region" style="--flow-space:var(--step-0); --region-space: var(--space-s)">{{ .Title }}</h1>
+		<div>
+		{{ with .Params.tags }}
+			{{ range . }}
+				<a class="hashtag" href="{{ " /tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>
+			{{ end }}
+		{{ end }}
 		</div>
-		<div class="flow" is="prose-content">
+	</article>
+	<article class="wrap center prose region">
+		<div class="region flow" is="prose-content">
 			{{ .Content }}
 		</div>
 	</article>
-	{{ with .Params.tags }}
-	<nav class="center">
-		<ul class="cluster">
-			{{ range . }}
-			<li><a href="{{ " /tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+	<div class="bg-highlight text-highlight">
+		<article class="wrap flow prose region text-center center" style="--region-space: 6rem">
+			<h3>Thanks for Reading</h3>
+			<p class="text-balance">
+				Email me your thoughts at 
+				<b>kerr<span class="visually-hidden">to-prevent-spam</span>@h<span class="visually-hidden">to-prevent-spam</span>ey.com<span class="visually-hidden">to-prevent-spam</span></b>
+				or give me a mention on <a href="{{ $.Site.Params.mastodon_url }}">Mastodon</a>.
+			</p>
+		</article>
+	</div>
+	<article class="wrap region">
+		<nav class="fifty w-full">
+			{{ with .PrevInSection }}
+				<div class="read-next text-center">
+					<label class="text-highlight step--1 uppercase">Previous</label>
+					<h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+				</div>
 			{{ end }}
-		</ul>
-	</nav>
-	{{ end }}
-	<footer class="region flow center" style="--region-space: 12rem">
-		<p>
-			Please email your thoughts to
-			<b>kerr<span class="visually-hidden">to-prevent-spam</span>@h<span class="visually-hidden">to-prevent-spam</span>ey.com<span class="visually-hidden">to-prevent-spam</span></b>,
-			my personal address.
-			I would love to hear from you.
-		</p>
-	</footer>
-	<nav class="region cluster justify-between w-full">
-		{{ with .PrevInSection }}
-		<div>
-			<label>Previous</label>
-			<h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
-		</div>
-		{{ end }}
-		{{ with .NextInSection }}
-		<div class="text-right" style="margin-inline-start: auto">
-			<label>Next</label>
-			<h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
-		</div>
-		{{ end }}
-	</nav>
+			{{ with .NextInSection }}
+				<div class="read-next text-center ">
+					<label class="text-highlight step--1 uppercase">Next</label>
+					<h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
+				</div>
+			{{ end }}
+		</nav>
+	</article>
 </main>
 {{ end }}
