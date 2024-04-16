@@ -5,7 +5,7 @@ draft: false
 tags: ["addiction", "love", "god"]
 ---
 
-Imagine hanging out with someone all day who berates you. They make final judgements about your character. They criticize anything you do imperfectly. They gossip about everyone you meet. They treat everyone like this. They even even shame you for having such a shitty friend around all the time. You desperately want them to go away, but they won't stop following you. They never leave. The moment you wake up until the moment you fall asleep. Every conscious moment, their stream of negative comments flows into your ear.
+Imagine hanging out with someone all day who berates you. They make final judgements about your character. They criticize anything you do imperfectly. They gossip about everyone you meet. They treat everyone like this. They even shame you for having such a shitty friend around all the time. You desperately want them to go away, but they won't stop following you. They never leave. The moment you wake up until the moment you fall asleep. Every conscious moment, their stream of negative comments flows into your ear.
 
 What would you do?
 
