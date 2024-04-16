@@ -2,6 +2,7 @@
 title: Finally Understanding How Array.sort(comparator) Works
 date: 2024-03-28T11:39:07-07:00
 draft: false
+tags: ["javascript"]
 ---
 
 After 13 years of JavaScript, I finally have a way to remember how the comparator function in [Array.sort()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) works.
@@ -9,7 +10,7 @@ After 13 years of JavaScript, I finally have a way to remember how the comparato
 I think the trouble is that all the examples use this shorthand syntax.
 
 ```js
-array.sort((a, b) => b - a) // too hard for James
+array.sort((a, b) => b - a); // too hard for James
 ```
 
 This is beyond confusing for me. In the past, I would just try `b - a` then try `a - b` and pick which one gave me the result I wanted. But now I have a mental model simple enough for me to remember.
@@ -28,9 +29,9 @@ Now let's think about the return value. The function must return a number. Numbe
     a good ol' number line
 ```
 
-So check it out, if your comparator function returns a *negative number*, the first argument `a` will come first, before `b`. Just like negative numbers on the number line come first!
+So check it out, if your comparator function returns a _negative number_, the first argument `a` will come first, before `b`. Just like negative numbers on the number line come first!
 
-If the function returns a *positive number*, the first argument `a` will come after `b`. The `a` item will be on the "right" side of of `b`, just like the positive numbers are on the "right" side of the number line!
+If the function returns a _positive number_, the first argument `a` will come after `b`. The `a` item will be on the "right" side of of `b`, just like the positive numbers are on the "right" side of the number line!
 
 # 🤯
 

@@ -3,6 +3,7 @@ title: "I Have Enough"
 date: 2023-10-17T09:28:23-07:00
 draft: false
 description: A poem about the liberating concept of enough.
+tags: ["poem"]
 ---
 
 {{< poem >}}

@@ -1,0 +1,12 @@
+{{ define "main" }}
+<main class="wrap flow">
+  <h1>
+    Posts with tag:
+    <span class="hashtag" style="font-size: inherit">{{ .Title }}</span>
+  </h1>
+  <div class="flow region">
+    {{ range .Paginator.Pages }} {{ .Render "summary" }} {{ end }}
+  </div>
+  {{ partial "pagination.html" . }}
+</main>
+{{ end }}
