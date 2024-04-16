@@ -114,7 +114,7 @@ All you TypeScript purists may wince at that memo function. But to me, the trade
 ```ts
 function cache<T>(self: object, prop: string, func: () => T): T {
   const cache = self[prop];
-  if (cache) return cache;
+  if (cache !== undefined) return cache;
   const result = func();
   self[prop] = result;
   return result;
