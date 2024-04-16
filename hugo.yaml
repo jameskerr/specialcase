@@ -3,6 +3,7 @@ languageCode: "en-us"
 title: jameskerr.blog
 theme: blank
 paginate: 100
+summaryLength: 20
 
 params:
   author: James Kerr

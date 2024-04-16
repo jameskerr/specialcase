@@ -20,7 +20,7 @@
   @utopia typeScale({
     minFontSize: 19,
     maxFontSize: 21,
-    minTypeScale: 1.175,
+    minTypeScale: 1.1,
     maxTypeScale: 1.28,
     positiveSteps: 5,
     negativeSteps: 2,

@@ -1,6 +1,6 @@
 {{ define "main" }}
 <main>
-	<article class="wrap flow text-center">
+	<article class="wrap flow text-center region">
 		{{ with (.Resources.ByType "image").GetMatch "*cover*" }}
 			<img src="{{ .RelPermalink }}" class="featured-image" />
 		{{ end }}
@@ -14,21 +14,23 @@
 		{{ end }}
 		</div>
 	</article>
-	<article class="wrap center prose region">
-		<div class="region flow" is="prose-content">
+	<article class="wrap center prose">
+		<div class="flow" is="prose-content">
 			{{ .Content }}
 		</div>
 	</article>
-	<div class="bg-highlight text-highlight">
-		<article class="wrap flow prose region text-center center" style="--region-space: 6rem">
-			<h3>Thanks for Reading</h3>
-			<p class="text-balance">
-				Email me your thoughts at 
-				<b>kerr<span class="visually-hidden">to-prevent-spam</span>@h<span class="visually-hidden">to-prevent-spam</span>ey.com<span class="visually-hidden">to-prevent-spam</span></b>
-				or give me a mention on <a href="{{ $.Site.Params.mastodon_url }}">Mastodon</a>.
-			</p>
-		</article>
-	</div>
+	<article class="region" style="--region-space: 6em">
+		<div class="bg-highlight text-highlight">
+			<div class="wrap flow prose region text-center center" style="--region-space: 3em">
+				<h3>Thanks for Reading</h3>
+				<p class="text-balance">
+					Email me your thoughts at 
+					<b>kerr<span class="visually-hidden">to-prevent-spam</span>@h<span class="visually-hidden">to-prevent-spam</span>ey.com<span class="visually-hidden">to-prevent-spam</span></b>
+					or give me a mention on <a href="{{ $.Site.Params.mastodon_url }}">Mastodon</a>.
+				</p>
+			</div>
+		</div>
+	</article>
 	<article class="wrap region">
 		<nav class="fifty w-full">
 			{{ with .PrevInSection }}

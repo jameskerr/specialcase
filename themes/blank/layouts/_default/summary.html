@@ -6,9 +6,8 @@
 			<a class="hashtag" href="{{ " /tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
 		{{ end }}
 		<p>
-			{{ .Params.Description }}
-			{{ if .Truncated }}
-			{{ end }}
+			{{ .Summary | safeHTML }}
+			<br />
 			<a href="{{ .Permalink }}">Read More</a>
 		</p>
 	</div>
