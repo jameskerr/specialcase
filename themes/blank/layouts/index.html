@@ -1,6 +1,6 @@
 {{ define "main" }}
 <main class="wrap">
-  <div class="flow">
+  <div class="flow region" style="--flow-space: var(--space-3xl)">
     {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in"
     .Site.Params.mainSections) }} {{ range $paginator.Pages }} {{ .Render
     "summary" }} {{ end }}
