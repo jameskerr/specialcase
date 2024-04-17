@@ -2,6 +2,7 @@
 title: "Responsive Sizing for React Arborist Tree Component"
 date: 2024-04-17T10:00:47-07:00
 draft: false
+tags: ["javascript", "react", "react-arborist"]
 ---
 
 Many people ask me about how to dynamically set the width and height of the Tree component based on its parent using [react-arborist](https://github.com/brimdata/react-arborist).
