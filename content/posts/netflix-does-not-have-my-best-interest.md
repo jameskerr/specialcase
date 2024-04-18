@@ -2,18 +2,17 @@
 title: Netflix Does Not Have My Best Interest
 date: 2023-03-23T18:59:18-07:00
 draft: false
-description: |
-  I watch Netflix because I’m too tired to do anything else. The kids are finally sleeping and I’m spent. 
+tags: ["addiction"]
 ---
 
-I watch Netflix because I’m too tired to do anything else. The kids are finally sleeping and I’m spent. 
+I watch Netflix because I’m too tired to do anything else. The kids are finally sleeping and I’m spent.
 
 It’s meant to be a quick escape from life before I do what I really need to do which is sleep.
 
 But then Netflix launches the attack!
 
 1. They release every episode to a show all at once.
-2. They give me 3 seconds to stop the next show from automatically playing. 
+2. They give me 3 seconds to stop the next show from automatically playing.
 
 I’m too tired to get up and stop the next episode! I’m watching because I’m too tired to do anything else. Theres not sufficient willpower to instantly stop the next show once the current one finishes resulting in me watching TV way later than I want to and becoming even more tired the next day. A vicious cycle.
 

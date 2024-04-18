@@ -1,9 +1,17 @@
 <header class="site-header">
-  <div class="wrap">
+  <div class="wrap repel">
     <a class="no-underline" href="{{ .Site.BaseURL }}">
       <h1 class="font-base font-normal" style="font-size: var(--step-1)">
-        {{.Site.Title}}
+        {{ .Site.Title }}
       </h1>
     </a>
+    <nav class="cluster">
+        {{ with .Site.Menus.links }}
+          {{ range . }}
+            <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
   </div>
 </header>

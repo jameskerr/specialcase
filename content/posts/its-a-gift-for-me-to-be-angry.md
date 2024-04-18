@@ -2,8 +2,7 @@
 title: It’s a Gift for Me to Be Angry
 date: 2023-04-03T14:43:39-07:00
 draft: false
-description: |
-  When I’m angry I stop needing everyone to like me. I don’t care if they approve of what I do. My face doesn’t hurt from smiling all the time.
+tags: ["relationships"]
 ---
 
 When I’m angry I stop needing everyone to like me. I don’t care if they approve of what I do. My face doesn’t hurt from smiling all the time. When people talk to me, I give myself a moment to evaluate if I agree or not before automatically nodding in agreement.

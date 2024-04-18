@@ -1,19 +1,19 @@
 :root {
-    --color-primary: rgb(241, 114, 51);
-    
-    --color-bg: hsl(39 93% 99% / 1);
-    --color-bg-highlight: hsl(39 93% 90% / 1);
-    
-    --color-text: #352621;
-    --color-text-highlight: hsl(19.89deg 52.75% 47.03%);
+  --color-primary: rgb(241, 114, 51);
 
-    --font-base: rooney-web, serif;
-    --font-heading: rooney-web, serif;
-    --gutter: var(--space-s-l);
-    --line-height: 1.6;
-    --measure: 60ch;
-    --radius: 8px;
-    --weight-heading: 500;
+  --color-bg: hsl(39 93% 99% / 1);
+  --color-bg-highlight: hsl(39 93% 90% / 1);
+
+  --color-text: #352621;
+  --color-text-highlight: hsl(19.89deg 52.75% 47.03%);
+
+  --font-base: rooney-web, serif;
+  --font-heading: rooney-web, serif;
+  --gutter: var(--space-s-l);
+  --line-height: 1.6;
+  --measure: 60ch;
+  --radius: 8px;
+  --weight-heading: 500;
 }
 
 :root {
@@ -31,6 +31,6 @@
     maxSize: 18,
     positiveSteps: [1.5, 2, 3, 4, 7],
     negativeSteps: [0.75, 0.5],
-    customSizes: ['s-l'],
+    customSizes: ['s-l', "l-2xl"],
   });
 }

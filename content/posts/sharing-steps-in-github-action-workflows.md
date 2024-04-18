@@ -2,9 +2,7 @@
 title: Sharing Steps in Github Action Workflows
 date: 2022-06-13T13:00:00-07:00
 draft: false
-description: |
-  I've got three workflow files all with slightly differing steps.
-  Is there a way to share what is common? Yes.
+tags: ["infra", "electron"]
 ---
 
 I've got an [electron app](https://github.com/brimdata/brim) that needs to be built on all three platforms. I've got three workflow files all with slightly differing steps. Is there way to share whats common? Yes. It's called [composite actions](https://docs.github.com/en/actions/creating-actions/about-custom-actions#composite-actions).

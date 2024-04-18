@@ -2,7 +2,7 @@
 title: "A Battle of Wit"
 date: 2023-09-16T17:44:44-07:00
 draft: false
-description: A poem about jesting with friends.
+tags: ["poem"]
 ---
 
 {{< poem >}}

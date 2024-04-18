@@ -2,7 +2,7 @@
 title: "Partially Controlled Components: A Declarative Design Pattern in React"
 date: 2023-08-01T12:00:00-0800
 draft: false
-description: A common distinction in React is controlled vs uncontrolled components. But the real world is not so black and white...
+tags: ["react"]
 ---
 
 A common distinction in React is [Controlled vs Uncontrolled](https://react.dev/learn/sharing-state-between-components#controlled-and-uncontrolled-components) components. But the real world is not so black and white...

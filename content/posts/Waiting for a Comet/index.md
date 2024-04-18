@@ -2,7 +2,7 @@
 title: "Waiting for a Comet"
 date: 2023-09-20T09:53:06-07:00
 draft: false
-description: This poem was written on a backpacking trip through the Wind River Range in Wyoming.
+tags: ["poem"]
 ---
 
 {{< poem >}}

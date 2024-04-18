@@ -2,7 +2,7 @@
 title: How to Pipe a NodeJS Readable Stream into a Child Process
 date: 2023-09-22T10:00:27-07:00
 draft: false
-description: Learn how to wrap a NodeJS child process with a transform stream so that you can use it in a pipeline.
+tags: ["javascript", "node"]
 ---
 
 I love pipes. Anytime I can pipe something somewhere, it seems that order has claimed a victory over chaos. In fact, there is pipe-related photo of me at the end of this article for your viewing pleasure.
@@ -14,9 +14,9 @@ I wanted something that could do this.
 ```js
 const process = createProcess(args);
 const zq = createTransformStream(process);
-const data = input.pipe(zq) // <-- Very cool
+const data = input.pipe(zq); // <-- Very cool
 
-await client.load(data)
+await client.load(data);
 ```
 
 The child process needed to be a wrapped in a transform stream that would feed data to stdin and pass on data from stdout.
@@ -46,46 +46,44 @@ The steps:
 
 Here is the code.
 
-
 ```js
 function createTransformStream(child) {
   const stream = new Stream.Transform({
     transform(chunk, encoding, callback) {
       if (child.stdin.write(chunk, encoding)) {
-	      process.nextTick(callback);
+        process.nextTick(callback);
       } else {
-        child.stdin.once('drain', callback);
+        child.stdin.once("drain", callback);
       }
     },
 
     flush(callback) {
       child.stdin.end();
       if (child.stdout.destroyed) callback();
-      else child.stdout.on('close', () => callback());
+      else child.stdout.on("close", () => callback());
     },
   });
 
-  child.stdin.on('error', (e) => {
-    if (e.code === 'EPIPE') {
+  child.stdin.on("error", (e) => {
+    if (e.code === "EPIPE") {
       // finished before reading the file finished (i.e. head)
-      stream.emit('end');
+      stream.emit("end");
     } else {
       stream.destroy(e);
     }
   });
 
   child.stdout
-    .on('data', (data) => stream.push(data))
-    .on('error', (e) => stream.destroy(e));
+    .on("data", (data) => stream.push(data))
+    .on("error", (e) => stream.destroy(e));
 
   child.stderr
-    .on('data', (data) => stream.destroy(new Error(data.toString())))
-    .on('error', (e) => stream.destroy(e));
+    .on("data", (data) => stream.destroy(new Error(data.toString())))
+    .on("error", (e) => stream.destroy(e));
 
   return stream;
 }
 ```
-
 
 Before we go into detail about what this code does, let's discuss a very confusing topic for me, NodeJS streams.
 
@@ -94,29 +92,27 @@ Before we go into detail about what this code does, let's discuss a very confusi
 A [readable](https://nodejs.org/api/stream.html#readable-streams) is like a file. Call `readable.read()` to get the first chunk of data from the file.
 
 ```js
-const chunk = readable.read()
+const chunk = readable.read();
 ```
 
-But if I am creating my own readable, it starts off empty. There is no data to read. To add some, use the `readable.push()` method. 
-
+But if I am creating my own readable, it starts off empty. There is no data to read. To add some, use the `readable.push()` method.
 
 ```js
-readable.push("my-chunk-of-data")
+readable.push("my-chunk-of-data");
 ```
 
-This was confusing to me, because I am essentially "writing" data into the readable. But don't say it like that, because the `write()`  method name is already taken as we'll see next.
+This was confusing to me, because I am essentially "writing" data into the readable. But don't say it like that, because the `write()` method name is already taken as we'll see next.
 
 ## Understanding NodeJS Writables
 
 A [writable](https://nodejs.org/api/stream.html#writable-streams) is a destination for data to land. The writable thing takes the data I give it with `writable.write()` and does something with it. To indicate that I have written all the data I have to it, I call `writable.end()`.
 
 ```js
-writable.write("first chunk")
-writable.write("second chunk")
-writable.write("ok, i'm done")
-writable.end()
+writable.write("first chunk");
+writable.write("second chunk");
+writable.write("ok, i'm done");
+writable.end();
 ```
-
 
 ## Understanding NodeJS Duplex Streams
 
@@ -142,7 +138,7 @@ transform(chunk, encoding, callback) {
 
 The [transform function](https://nodejs.org/api/stream.html#transform_transformchunk-encoding-callback) has the arguments `chunk`, `encoding`, and `callback`. The `chunk` is the bit of data that was just read and the `callback` is supposed to be called after I've processed it.
 
-I pass that bit of data to my child process by writing to the process `stdin`. If `stdin.write()` returns true, it's ready to accept more data so I call the `callback` on the next tick. If it returns false, it wants me to wait for the `"drain"` event before continuing, so we call the  `callback` once that event is fired. This is called "respecting back-pressure." Respect.
+I pass that bit of data to my child process by writing to the process `stdin`. If `stdin.write()` returns true, it's ready to accept more data so I call the `callback` on the next tick. If it returns false, it wants me to wait for the `"drain"` event before continuing, so we call the `callback` once that event is fired. This is called "respecting back-pressure." Respect.
 
 ### The Flush Function
 
@@ -160,8 +156,8 @@ The [flush function](https://nodejs.org/api/stream.html#transform_flushcallback)
 
 ```js
 child.stdout
-	.on('data', (data) => stream.push(data))
-	.on('error', (e) => stream.destroy(e));
+  .on("data", (data) => stream.push(data))
+  .on("error", (e) => stream.destroy(e));
 ```
 
 This is where I "push" the data that comes out of my child process into the transform stream. If there's an error, I call [destroy](https://nodejs.org/api/stream.html#writabledestroyerror) and pass in the error.
@@ -170,8 +166,8 @@ This is where I "push" the data that comes out of my child process into the tran
 
 ```js
 child.stderr
-	.on('data', (data) => stream.destroy(new Error(data.toString())))
- 	.on('error', (e) => stream.destroy(e));
+  .on("data", (data) => stream.destroy(new Error(data.toString())))
+  .on("error", (e) => stream.destroy(e));
 ```
 
 This is some error handling. In my case, if anything gets pushed into `stderr`, I consider it an error and destroy the transform stream providing the appropriate error text.
@@ -179,13 +175,13 @@ This is some error handling. In my case, if anything gets pushed into `stderr`, 
 ### Listening to stdin
 
 ```js
-child.stdin.on('error', (e) => {
-	if (e.code === 'EPIPE') {
-	  // the process finished before reading the file finished
-	  stream.emit('end');
-	} else {
-	  stream.destroy(e);
-	}
+child.stdin.on("error", (e) => {
+  if (e.code === "EPIPE") {
+    // the process finished before reading the file finished
+    stream.emit("end");
+  } else {
+    stream.destroy(e);
+  }
 });
 ```
 

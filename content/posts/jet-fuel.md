@@ -2,11 +2,7 @@
 title: Jet Fuel
 date: 2023-05-05T16:10:00-07:00
 draft: false
-description: |
-  We build an engine for it.
-  It propels us to new heights.
-  It explodes.
-  It destroys everything around it.
+tags: ["poem"]
 ---
 
 We build an engine for it.  
@@ -24,4 +20,4 @@ Rest in the potential within.
 Sacred energy.  
 For purpose.  
 For pleasure.  
-For life. 
+For life.

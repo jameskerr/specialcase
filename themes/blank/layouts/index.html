@@ -1,9 +1,26 @@
 {{ define "main" }}
-<main class="wrap">
-  <div class="flow region" style="--flow-space: var(--space-3xl)">
-    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in"
-    .Site.Params.mainSections) }} {{ range $paginator.Pages }} {{ .Render
-    "summary" }} {{ end }}
+  <div class="sidebar wrap region items-start gap-2xl" style="gap: var(--space-l-2xl);">
+    <aside class="flow bg-highlight box step--1" style="flex-basis: 25ch">
+      {{ $pic := resources.Get "img/jameskerr.jpg" | resources.Fingerprint }}
+      <img width="100%" style="max-width: 25ch; margin-inline: auto;" src="{{ $pic.RelPermalink }}" alt="James Kerr's Profile Picture"/> 
+      <p><b>James Kerr</b> is a man in <i>San Francisco</i> writing software and pondering our collective existence.</p>
+      <p>Here you'll find prose and poetry on topics such as:
+        <a class="italic" href="{{ "/tags/" | relLangURL }}javascript">#javascript</a>
+        <a class="italic" href="{{ "/tags/" | relLangURL }}money">#money</a>
+        <a class="italic" href="{{ "/tags/" | relLangURL }}react">#react</a>
+        <a class="italic" href="{{ "/tags/" | relLangURL }}addiction">#addiction</a>
+        <a class="italic" href="{{ "/tags/" | relLangURL }}ruby">#ruby</a>
+        <a class="italic" href="{{ "/tags/" | relLangURL }}god">#god</a> and
+        <a class="italic" href="{{ "/tags/" | relLangURL }}parenting">#parenting</a>.
+    </aside>
+    <main class="flow">
+        {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+        {{ range $paginator.Pages }}
+          <article style="--flow-space: var(--space-3xl)">
+          {{ .Render "summary" }}
+          </article>  
+        {{ end }}
+      </article>
+    </main>
   </div>
-</main>
 {{ end }}

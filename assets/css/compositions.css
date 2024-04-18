@@ -24,3 +24,32 @@
   grid-template-columns: 1fr 1fr;
   grid-column-gap: var(--gutter);
 }
+
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
+.sidebar > :first-child {
+  flex-basis: 20rem;
+  flex-grow: 1;
+}
+
+.sidebar > :last-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-width: 50%;
+}
+
+.box {
+  padding: var(--gutter);
+}
+
+.repel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter);
+  align-items: center;
+  justify-content: space-between;
+}

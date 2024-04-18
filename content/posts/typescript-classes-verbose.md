@@ -2,8 +2,7 @@
 title: TypeScript Classes Are Giving Me Carpal Tunnel
 date: 2022-12-21T10:37:00-07:00
 draft: false
-description: |
-  Wincing at the ceremony required to make a TypeScript class happy when it wants an object argument.
+tags: ["typescript"]
 ---
 
 Whenever a class needs a few arguments in TypeScript, I cringe because I know I'm going to need to perform a ceremony to make it happy.
@@ -12,11 +11,11 @@ Let's start with the simple case. If a Class needs two arguments, I'd do this:
 
 ```ts
 class Point {
-  x: number
-  y: number
+  x: number;
+  y: number;
   constructor(x: number, y: number) {
-    this.x = x
-    this.y = y
+    this.x = x;
+    this.y = y;
   }
 }
 ```
@@ -25,7 +24,10 @@ There is some repetition to get the types and initialization right. Fortunately,
 
 ```ts
 class Point {
-  constructor(public x: number, public y: number) {}
+  constructor(
+    public x: number,
+    public y: number,
+  ) {}
 }
 ```
 
@@ -34,10 +36,12 @@ Very nice. By providing a typescript keyword `public`, `private`, `protected`, o
 This is amazing but...
 
 ```ts
-new GiantObjectWithManyArgs(field, table, null, null, undefined, "init", () => console.log("callback"))
+new GiantObjectWithManyArgs(field, table, null, null, undefined, "init", () =>
+  console.log("callback"),
+);
 ```
 
-...it breaks down when you have more than 1 or 2 arguments. To fix this, a common pattern is to pass a single object argument. 
+...it breaks down when you have more than 1 or 2 arguments. To fix this, a common pattern is to pass a single object argument.
 
 ```ts
 new GiantObjectWithManyArgs({
@@ -46,11 +50,11 @@ new GiantObjectWithManyArgs({
   parent: null,
   children: null,
   status: "init",
-  onComplete: () => console.log("callback")
-})
+  onComplete: () => console.log("callback"),
+});
 ```
 
-This is so much better than positional arguments. 
+This is so much better than positional arguments.
 
 1. They have names!
 2. The order doesn't matter!
@@ -60,42 +64,42 @@ In JavaScript, this would be a piece of cake to setup in the constructor.
 
 ```js
 class GiantObjectWithManyArgs {
-	constructor(args) {
-	  Object.assign(this, args)
-	}
+  constructor(args) {
+    Object.assign(this, args);
+  }
 }
 ```
 
-Everything in the args object becomes a member of the class. But in TypeScript, the amount of code needed to make this work explodes! 
+Everything in the args object becomes a member of the class. But in TypeScript, the amount of code needed to make this work explodes!
 
 This is the least verbose way I know to write it.
 
 ```ts
 type Args = {
-  field: zed.Field
-  table: zed.Table
-  parent: GiantObject | null
-  children: GiantObject[] | null
-  status: "init" | "complete"
-  onComplete?: () => void  
-}
+  field: zed.Field;
+  table: zed.Table;
+  parent: GiantObject | null;
+  children: GiantObject[] | null;
+  status: "init" | "complete";
+  onComplete?: () => void;
+};
 
 class GiantObject {
-	field: Args["field"]
-	table: Args["table"]
-	parent: Args["parent"]
-	children: Args["children"]
-	status: Args["status"]
-	onComplete: Args["onComplete"]
-	
-	constructor(args: Args) {
-	  this.field = args.field
-	  this.table = args.table
-	  this.parent = args.parent
-	  this.children = args.children
-	  this.status = args.status
-	  this.onComplete = args.onComplete
-	}
+  field: Args["field"];
+  table: Args["table"];
+  parent: Args["parent"];
+  children: Args["children"];
+  status: Args["status"];
+  onComplete: Args["onComplete"];
+
+  constructor(args: Args) {
+    this.field = args.field;
+    this.table = args.table;
+    this.parent = args.parent;
+    this.children = args.children;
+    this.status = args.status;
+    this.onComplete = args.onComplete;
+  }
 }
 ```
 
@@ -112,14 +116,14 @@ type Args = {
   parent: GiantObject | null
   children: GiantObject[] | null
   status: "init" | "complete"
-  onComplete?: () => void  
+  onComplete?: () => void
 }
 
 // Not Real TypeScript
 class GiantObject {
   constructor(public assign args: Args) {}
-	
-  // Aww, it's probably hard to specifiy 
+
+  // Aww, it's probably hard to specifiy
   // some as a private and others as public...
 }
 // Or mabye
@@ -136,16 +140,16 @@ My workaround for this is to assign the whole object to a member variable called
 
 ```ts
 type Args = {
-// ...
-}
+  // ...
+};
 
 class GiantObject {
-	args: Args
-	
-	constructor(private args: Args) {}
+  args: Args;
+
+  constructor(private args: Args) {}
 }
 ```
 
-Then I have to make getters for each of the pieces I need. It's not a bad way to go, but I'm coding around something because the tooling makes the preferred style difficult. 
+Then I have to make getters for each of the pieces I need. It's not a bad way to go, but I'm coding around something because the tooling makes the preferred style difficult.
 
 Object arguments are so much better than positional arguments, but the boilerplate in TypeScript compared to plain JavaScript makes them almost not worth it.

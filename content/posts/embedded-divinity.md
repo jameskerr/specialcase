@@ -2,13 +2,12 @@
 title: Embedded Divinity
 date: 2023-03-22T10:52:26-07:00
 draft: false
-description: |
-  What if we didn't think of God as infinite. What if God poured itself into this particular universe.
+tags: ["god"]
 ---
 
 What if we didn't think of God as infinite.
 
-What if God poured itself into this *particular* universe. What if He's completely bound to this one cosmos. It's life is *it's* life. Our "being" is only because the Source is fully giving itself to the existence.
+What if God poured itself into this _particular_ universe. What if He's completely bound to this one cosmos. It's life is _it's_ life. Our "being" is only because the Source is fully giving itself to the existence.
 
 If we think this way, God is embedded into the material around us. He's not a distant cosmic scientist creating life in his lab, doing experiments, always able to try again, no one instance too important.
 

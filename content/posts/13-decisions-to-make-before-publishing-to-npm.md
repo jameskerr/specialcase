@@ -2,14 +2,13 @@
 title: 13 Decisions to Make Before Publishing JavaScript to NPM
 date: 2023-03-30T09:00:00-07:00
 draft: false
-description: |
-  To simply share some JavaScript you've got to consider JS runtimes, module formats, and package.json interpretations. Was it easier when cross-browser compatibility was the big headache?
+tags: ["javascript", "npm"]
 ---
 
 This post is half rant, half guide. Each of these 13 questions reveals tradeoffs that take time and mental energy to research. In case you don't already have enough to decide today, here's what you must consider when creating and publishing a new JavaScript package.
 
 ### 1. Do you want to write it in TypeScript?
- 
+
 If so, you'll need to compile it before publishing. Bookmark the the [tsconfig.json](https://www.typescriptlang.org/tsconfig) reference.
 
 ### 2. Do you want to compile using tsc, swc, or esbuild?
@@ -56,10 +55,9 @@ You'll need to know about services like [jsDelivr](https://www.jsdelivr.com/) or
 
 Esbuild talks about doing this [in their docs](https://esbuild.github.io/getting-started/#bundling-for-node). It can be faster to read from the disc.
 
-### 13. Where will you specify your entry point in package.json? 
+### 13. Where will you specify your entry point in package.json?
 
-The top choices for your [entry point](https://nodejs.org/api/packages.html#package-entry-points) are: ["exports"](https://nodejs.org/api/packages.html#main-entry-point-export), ["main"](https://nodejs.org/api/packages.html#main), and ["browser"](https://github.com/defunctzombie/package-browser-field-spec). Each runtime and build tool will use this information to run or compile your code. 
-
+The top choices for your [entry point](https://nodejs.org/api/packages.html#package-entry-points) are: ["exports"](https://nodejs.org/api/packages.html#main-entry-point-export), ["main"](https://nodejs.org/api/packages.html#main), and ["browser"](https://github.com/defunctzombie/package-browser-field-spec). Each runtime and build tool will use this information to run or compile your code.
 
 ## What. A. Nightmare.
 
@@ -69,11 +67,11 @@ To simply share some JavaScript you've got to consider JS runtimes, module forma
 
 I had to spend the time making these decisions for my own package [@brimdata/zed-js](https://www.npmjs.com/package/@brimdata/zed-js). A JavaScript client package for the [Zed](https://zed.brimdata.io/) data platform. Here's what I came up with.
 
-**I will write TypeScript**. 
+**I will write TypeScript**.
 
 **I will use [nx](https://nx.dev/)** to generate the project because their developers have many sane decisions for me. Thank you!
 
-**I will build a sole CJS version** for Node since I plan to consume this package in an Electron app and [Electron doesn't yet support ESM](https://github.com/electron/electron/issues/21457). This was a hard decision because [respected community members](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c?permalink_comment_id=3850849#gistcomment-3850849) are pushing valiantly for pure ESM packages. I agree philosophically 100%.  If I wasn't the one consuming this package, I'd go pure ESM. However, I don't feel like [hacking around Electron](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c?permalink_comment_id=3850849#gistcomment-3850849) to get my own code to run, so I'm compromising on my values for today.
+**I will build a sole CJS version** for Node since I plan to consume this package in an Electron app and [Electron doesn't yet support ESM](https://github.com/electron/electron/issues/21457). This was a hard decision because [respected community members](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c?permalink_comment_id=3850849#gistcomment-3850849) are pushing valiantly for pure ESM packages. I agree philosophically 100%. If I wasn't the one consuming this package, I'd go pure ESM. However, I don't feel like [hacking around Electron](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c?permalink_comment_id=3850849#gistcomment-3850849) to get my own code to run, so I'm compromising on my values for today.
 
 **I will use tsc to build** the CJS version to avoid another tool. If my project were huge, I'd use to swc to build and tsc to lint.
 

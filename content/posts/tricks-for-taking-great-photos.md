@@ -2,10 +2,8 @@
 title: 5 Tricks for Taking Great Photos
 date: 2023-05-04T12:39:05-07:00
 draft: false
-description: |
-  I’ve owned a full frame camera for over five years. I’ve acquired four lenses and snapped many thousands of photos. And yet, last week I discovered these five tricks and was shocked by my ignorance of them.
+tags: ["photography"]
 ---
-
 
 I’ve owned a full frame camera for over 5 years. I’ve acquired 3 lenses and snapped many thousands of photos. And yet, last week I discovered these five tricks and was shocked by my ignorance of them.
 
@@ -43,7 +41,7 @@ The subject should stand out from the background. Anything busy or random in the
 
 So next time you snap a pic:
 
-1. Pick a subject 
+1. Pick a subject
 2. Light it up
 3. Find the flow
 4. Simplify the background

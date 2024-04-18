@@ -2,10 +2,8 @@
 title: React Hook for Avoiding Flash of Empty UI While Data Transitions
 draft: false
 date: 2023-06-27T11:55:19-0700
-description: Walk through a React hook that avoids the flash of empty UI when old data is cleared and new data is fetching.
+tags: ["react"]
 ---
-
-
 
 I'm working on a React app that has frequent data transitions. Each time a user submits a query, the state is reset as we wait for a response from the server. The new data can arrive quickly or slowly. If it arrives quickly, a flash of empty UI will render as the data is transitioning from the previous results to the current results.
 
@@ -21,47 +19,46 @@ At a high level, we need to prevent child React components from seeing the new d
 
 ## Return Value
 
-Let's work backward starting with the return value.  The hook should return the real data or a cache of the previous data. If we are "in transition" and the timeout has not expired, return the cached data, otherwise the real data.
+Let's work backward starting with the return value. The hook should return the real data or a cache of the previous data. If we are "in transition" and the timeout has not expired, return the cached data, otherwise the real data.
 
 ```javascript
 if (inTransition && !timeExpired) {
-	return cache
+  return cache;
 } else {
-	return real  
+  return real;
 }
-
 ```
 
 ## Cache
 
-Let's figure out when to cache. We must save the data before the transition starts. Let's put this in an effect that runs when _inTransition_ changes or when the data changes. Only cache if _isTransition_ is false. 
+Let's figure out when to cache. We must save the data before the transition starts. Let's put this in an effect that runs when _inTransition_ changes or when the data changes. Only cache if _isTransition_ is false.
 
 ```javascript
-const cache = useRef(data)
+const cache = useRef(data);
 
 useEffect(() => {
- 	if (!inTransition) cache.current = data
-}, [inTransition, data])
+  if (!inTransition) cache.current = data;
+}, [inTransition, data]);
 ```
 
 This always caches the data while the we are not transitioning. Since we don't need to re-render when the cache changes, we can store it in a ref.
 
 ## Timer
 
-Let's set that `timeExpired` variable. Whenever _isTransitioning_ changes to `true`, start a timer. When that timer finishes, update the `timeExpired` state. 
+Let's set that `timeExpired` variable. Whenever _isTransitioning_ changes to `true`, start a timer. When that timer finishes, update the `timeExpired` state.
 
 ```js
-const [timeExpired, setTimeExpired] = useState(false)
+const [timeExpired, setTimeExpired] = useState(false);
 
 useEffect(() => {
-  let id
+  let id;
   if (inTransition) {
-    id = setTimeout(() => setTimeExpired(true), dur)
+    id = setTimeout(() => setTimeExpired(true), dur);
   } else {
-    setTimeExpired(false)
+    setTimeExpired(false);
   }
-  return () => clearTimeout(id)
-}, [inTransition, dur])
+  return () => clearTimeout(id);
+}, [inTransition, dur]);
 ```
 
 We do want to re-render when `timeExpired` changes so we `useState`.
@@ -74,27 +71,27 @@ Now to bring it all together with TypeScript types.
 export function useDataTransition<T>(
   real: T,
   inTransition: boolean,
-  timeout: number
+  timeout: number,
 ) {
-  const [timeExpired, setTimeExpired] = useState(false)
-  const cache = useRef(real)
+  const [timeExpired, setTimeExpired] = useState(false);
+  const cache = useRef(real);
 
   useEffect(() => {
-    if (!inTransition) cache.current = real
-  }, [inTransition, real])
+    if (!inTransition) cache.current = real;
+  }, [inTransition, real]);
 
   useEffect(() => {
-    let id: number
+    let id: number;
     if (inTransition) {
-      id = setTimeout(() => setTimeExpired(true), timeout)
+      id = setTimeout(() => setTimeExpired(true), timeout);
     } else {
-      setTimeExpired(false)
+      setTimeExpired(false);
     }
-    return () => clearTimeout(id)
-  }, [inTransition, timeout])
+    return () => clearTimeout(id);
+  }, [inTransition, timeout]);
 
-  if (inTransition && !timeExpired) return cache.current
-  else return real
+  if (inTransition && !timeExpired) return cache.current;
+  else return real;
 }
 ```
 
@@ -102,28 +99,21 @@ We can use it like this:
 
 ```tsx
 function HistogramContainer() {
-  const isFetching = useSelector(getIsFetching)
-  const noDataYet = useSelector(getIsEmpty)
-  const realData = useSelector(getRealData)
-  
-  
-  const data = useDataTransition(
-  	realData,
-  	isFetching && noDataYet,
-  	300
-	)
-  
-  return <Histogram data={data} />
+  const isFetching = useSelector(getIsFetching);
+  const noDataYet = useSelector(getIsEmpty);
+  const realData = useSelector(getRealData);
+
+  const data = useDataTransition(realData, isFetching && noDataYet, 300);
+
+  return <Histogram data={data} />;
 }
 ```
 
-In the example above, we consider the data transitioning if we are in the middle of fetching and if we have not yet received any results. If either of those change, the transition will be done and the real data displayed. If they remain true for longer than 300ms, the real data will again be displayed which probably means some loading UI. 
+In the example above, we consider the data transitioning if we are in the middle of fetching and if we have not yet received any results. If either of those change, the transition will be done and the real data displayed. If they remain true for longer than 300ms, the real data will again be displayed which probably means some loading UI.
 
 ## After
 
 ![after](./after.gif)
-
-
 
 ## Post Script
 
