@@ -7,6 +7,7 @@
   --color-text: #352621;
   --color-text-highlight: hsl(19.89deg 52.75% 47.03%);
 
+  --color-border: var(--color-primary);
   --font-base: rooney-web, serif;
   --font-heading: rooney-web, serif;
   --gutter: var(--space-s-l);
