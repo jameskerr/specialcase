@@ -20,6 +20,10 @@ The fix is to disable asset bridging in deploy.yml.
 asset_path: /rails/public/assets
 ```
 
+{{< note "April 25, 2024 Update" >}}
+Wait! There is another way to fix this without disabling asset bridging. See the section at the end of this post. But keep reading to understand the problem.
+{{< /note >}}
+
 Why?
 
 When the deploy pipeline runs `rails assets:precompile` a file will be created called `.sprockets-manifest-randomhex.json`. This manifest file maps the name of your asset to the digested name that will be used in production for `stylesheet_link_tag` and the like.
@@ -46,3 +50,15 @@ The fix for now is to **turn off asset bridging**. The cost is low. It will only
 In the future, this could be fixed by only keeping one version of the manifest file, or specifiying which manifest to use somehow.
 
 Thank you so much to reddit user [ignurant](https://www.reddit.com/user/ignurant/) for their detailed explanation in [this comment](https://www.reddit.com/r/ruby/comments/17jmert/comment/k72v7m2/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button).
+
+## Update on April 25, 2024
+
+There is another solution that allows you to still bridge the assets. You explicitly set the name of the manifest file in your `production.rb` file like this:
+
+```rb
+# config/environments/production.rb
+
+config.assets.manifest = Rails.root.join('config', 'manifest.json')
+```
+
+This removes the random hash, allowing the new file to overwrite the old one on deploy. I don't know the reason for the random hash by default or the implications of removing it, but this would fix the problem outlined in this post. Thank you to you reddit user [\_skp](https://www.reddit.com/user/skp_/) for their help in this [comment](https://www.reddit.com/r/ruby/comments/1cbavse/comment/l14atcy/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button).
