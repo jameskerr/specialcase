@@ -1,47 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ .Site.LanguageCode | default " en-us" }}">
+  <head>
+    <title>{{ .Title }}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="{{ if .IsHome }}
+        {{ $.Site.Params.description }}
+      {{ else }}
+        {{ .Description }}
+      {{ end }}"
+    />
+    <meta name="author" content="{{ $.Site.Params.author }}" />
+    <link rel="stylesheet" href="https://use.typekit.net/kho2zxj.css" />
+    <link rel="me" href="https://mastodon.social/@jameskerr" />
 
-<head>
-	<title>{{ .Title }}</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
-	<meta name="author" content="{{ $.Site.Params.author }}" />
-	<link rel="stylesheet" href="https://use.typekit.net/kho2zxj.css">
-	
-	{{ with resources.Get "css/main.css" | postCSS }}
-  		<link rel="stylesheet" href="{{ .RelPermalink }}">
-	{{ end }}
-	
-	{{ template "_internal/twitter_cards.html" . }}
-	{{ template "_internal/opengraph.html" . }}
+    {{ with resources.Get "css/main.css" | postCSS }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" />
+    {{ end }}
 
-	<script defer data-domain="jameskerr.blog" src="https://plausible.io/js/script.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.3/dist/turbo.es2017-umd.min.js"></script>
-
-	{{ with resources.Get "js/main.js" | js.Build (dict "format" "esm")}}
-		<script defer type="module" src="{{ .RelPermalink }}"></script>
-	{{ end }}
+    {{ template "_internal/twitter_cards.html" . }}
+    {{ template "_internal/opengraph.html" . }}
 
 
-	{{/*  From Favicon Generator  */}}
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
-		{{/*  From Favicon Generator  */}}
+    <script
+      defer
+      data-domain="jameskerr.blog"
+      src="https://plausible.io/js/script.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.3/dist/turbo.es2017-umd.min.js"></script>
 
-	{{ with .OutputFormats.Get "RSS" -}}
-	{{ printf `
-	<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
-	{{- end }}
-</head>
+    {{ with resources.Get "js/main.js" | js.Build (dict "format" "esm") }}
+      <script defer type="module" src="{{ .RelPermalink }}"></script>
+    {{ end }}
 
-<body>
-	{{ partial "header" . }}
-	{{ block "main" . }}{{ end }}
-	{{ partial "footer" . }}
-</body>
+    {{/* From Favicon Generator */}}
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    {{/* From Favicon Generator */}}
 
+    {{ with .OutputFormats.Get "RSS" -}}
+      {{ printf `
+        <link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML
+      }}
+    {{- end }}
+  </head>
+
+  <body>
+    {{ partial "header" . }}
+    {{ block "main" . }}{{ end }}
+    {{ partial "footer" . }}
+  </body>
 </html>
