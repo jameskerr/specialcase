@@ -10,7 +10,7 @@ params:
   description: Thoughts about programming and the shared human experience.
   mastodon_url: https://mastodon.social/@jameskerr
   images:
-    - /img/site-thumbnail-image-2.jpg
+    - /img/default_feature.jpg
 
 markup:
   highlight:
