@@ -9,6 +9,7 @@ params:
   author: James Kerr
   description: Thoughts about programming and the shared human experience.
   mastodon_url: https://mastodon.social/@jameskerr
+  twitter_url: https://x.com/@specialCaseDev
   images:
     - /img/default_feature.jpg
 
