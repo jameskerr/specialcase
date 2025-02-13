@@ -1,4 +1,12 @@
-const KNOWN_ABBREVIATIONS = ["SCSS", "CSS", "HTML", "JS", "DOM", "API"];
+const KNOWN_ABBREVIATIONS = [
+  "SCSS",
+  "CSS",
+  "JS",
+  "DOM",
+  "API",
+  "HTTP",
+  "HTTPS",
+];
 
 class ProseContent extends HTMLDivElement {
   constructor() {
