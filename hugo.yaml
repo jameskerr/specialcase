@@ -2,7 +2,7 @@ baseURL: "https://www.jameskerr.blog/"
 languageCode: "en-us"
 title: jameskerr.blog
 theme: blank
-paginate: 100
+pagerSize: 100
 summaryLength: 20
 
 params:
