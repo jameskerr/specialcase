@@ -19,11 +19,11 @@ turbo_stream.replace "settings_form", ...
 
 To me, this is a problem. My faulty human memory is tasked with keeping these IDs in sync. I will inevitably misspell an ID or forget to update an instance during a rename and won’t encounter the bug until I manually click test through the page update.
 
-During my work on [Tend Cash](https://tend.cash) over the last 2 years, I've tried to mitigate this. First I reached for the view_component gem, then tried regular view helpers, and finally created my own simple solution inspired by the way React manages references to HTML elements.
+During my work on [Tend Cash](https://tend.cash) over the last 2 years, I've tried to mitigate this. First I reached for the view_component gem, then tried regular view helpers, and finally created my own simple solution inspired by the way React manages [references to HTML elements](https://react.dev/learn/referencing-values-with-refs#refs-and-the-dom).
 
 ## Solution 1: view_component
 
-Using the view_component gem, I could encapsulate the ID within the component class. This allowed me to reference it within the template and in the controller during an update.
+Using the [view_component](https://github.com/ViewComponent/view_component) gem, I could encapsulate the ID within the component class. This allowed me to reference it within the template and in the controller during an update.
 
 ```rb
 class SettingsFormComponent
@@ -43,7 +43,7 @@ This was a little awkward because I needed the ID in the instance and on the cla
 
 ## Solution 2: View Helpers
 
-Next I went back to the defaults and just made helpers to keep the IDs safe.
+Next I went back to the defaults and just made [view helpers](https://guides.rubyonrails.org/action_view_overview.html#overview-of-helpers-provided-by-action-view) to keep the IDs safe.
 
 ```rb
 def settings_form_id = "settings_form"
