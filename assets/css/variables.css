@@ -12,15 +12,15 @@
   --font-heading: rooney-web, serif;
   --gutter: var(--space-s-l);
   --line-height: 1.6;
-  --measure: 60ch;
+  --measure: 68ch;
   --radius: 8px;
   --weight-heading: 500;
 }
 
 :root {
   @utopia typeScale({
-    minFontSize: 19,
-    maxFontSize: 21,
+    minFontSize: 17,
+    maxFontSize: 19,
     minTypeScale: 1.1,
     maxTypeScale: 1.28,
     positiveSteps: 5,
@@ -28,8 +28,8 @@
   });
 
   @utopia spaceScale({
-    minSize: 14,
-    maxSize: 18,
+    minSize: 17,
+    maxSize: 19,
     positiveSteps: [1.5, 2, 3, 4, 7],
     negativeSteps: [0.75, 0.5],
     customSizes: ['s-l', "l-2xl"],

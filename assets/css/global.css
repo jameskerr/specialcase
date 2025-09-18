@@ -51,6 +51,7 @@ p {
 a {
   color: var(--color-text);
   text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 3px;
 }
 
 header {

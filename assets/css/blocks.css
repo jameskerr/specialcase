@@ -52,12 +52,12 @@
 .hashtag {
   background: var(--color-bg-highlight);
   padding-inline: 0.3em;
-  line-height: 0.65;
   color: var(--color-text-highlight);
   display: inline-block;
   font-size: var(--step--1);
   font-style: italic;
   transition: all 130ms;
+  text-decoration: none;
 
   &:hover {
     filter: saturate(170%) brightness(97%);
@@ -65,10 +65,8 @@
 }
 .read-next {
   background: var(--color-bg);
-  /* box-shadow: 0px 1px 4px -1px var(--color-text-highlight); */
   padding: var(--gutter);
   border-radius: 8px;
-  /* border: 1px solid var(--color-primary); */
 }
 
 .note {
@@ -76,7 +74,7 @@
   background-color: var(--color-bg-highlight);
   padding: var(--gutter);
 
-  h6 {
+  & h6 {
     text-transform: uppercase;
     font-size: var(--step--2);
     margin: 0;

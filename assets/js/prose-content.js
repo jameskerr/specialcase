@@ -6,6 +6,9 @@ const KNOWN_ABBREVIATIONS = [
   "API",
   "HTTP",
   "HTTPS",
+  "ID",
+  "IDs",
+  "HTML",
 ];
 
 class ProseContent extends HTMLDivElement {
