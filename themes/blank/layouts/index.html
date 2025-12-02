@@ -28,11 +28,10 @@
       </p>
     </aside>
     <main class="flow">
-        {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-        {{ range $paginator.Pages }}
+        {{ range where .Site.RegularPages "Section" "posts" }}
           <article style="--flow-space: var(--space-3xl)">
           {{ .Render "summary" }}
-          </article>  
+          </article>
         {{ end }}
       </article>
     </main>
