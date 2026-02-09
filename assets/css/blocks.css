@@ -82,3 +82,11 @@
     font-weight: 700;
   }
 }
+
+.poem {
+  border-top-style: solid;
+  white-space: pre-line;
+  border-bottom-style: solid;
+  padding-block: 0.5em;
+  padding-inline: 1ch;
+}

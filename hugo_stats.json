@@ -33,14 +33,12 @@
       "p",
       "pre",
       "script",
-      "source",
       "span",
       "strong",
       "style",
       "time",
       "title",
-      "ul",
-      "video"
+      "ul"
     ],
     "classes": [
       "bg-highlight",
@@ -148,12 +146,8 @@
       "solution-2-view-helpers",
       "spacing-classes",
       "spawn-a-child-process",
-      "the-active-item-reducer",
-      "the-combined-reducer",
-      "the-crud-reducer",
       "the-finished-code",
       "the-flush-function",
-      "the-key-value-reducer",
       "the-solution-is-html-with-a-class-attribute",
       "the-tailwind-phenomenon",
       "the-transform-function",
