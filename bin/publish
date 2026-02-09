@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]; then
+  echo "Usage: bin/publish <post-slug>"
+  exit 1
+fi
+
+year=$(date +%Y)
+file="content/posts/$year/$1/index.md"
+
+if [ ! -f "$file" ]; then
+  echo "Post not found: $file"
+  exit 1
+fi
+
+sed -i '' 's/^draft: true$/draft: false/' "$file"
+echo "Published: $file"

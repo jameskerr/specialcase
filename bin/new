@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+
+if [ -z "$1" ]; then
+  echo "Usage: bin/new <post-slug>"
+  exit 1
+fi
+
+year=$(date +%Y)
+hugo new "content/posts/$year/$1"
