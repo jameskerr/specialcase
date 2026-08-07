@@ -83,6 +83,59 @@
   }
 }
 
+.subscribe-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2xs, 0.5em);
+
+  & input[type="email"] {
+    flex: 1 1 24ch;
+    max-width: 34ch;
+    padding: 0.5em 0.75em;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+
+    &::placeholder {
+      color: var(--color-text);
+      opacity: 0.5;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 1px;
+    }
+  }
+
+  & button {
+    padding: 0.5em 1.25em;
+    background: var(--color-primary);
+    color: var(--color-bg);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    font-weight: var(--weight-heading);
+    cursor: pointer;
+    transition: filter 130ms;
+
+    &:hover {
+      filter: saturate(170%) brightness(97%);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-text);
+      outline-offset: 1px;
+    }
+  }
+}
+
+.subscribe-note {
+  font-size: var(--step--1);
+  font-style: italic;
+  opacity: 0.75;
+}
+
 .poem {
   border-top-style: solid;
   white-space: pre-line;
