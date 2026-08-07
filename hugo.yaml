@@ -8,6 +8,10 @@ summaryLength: 20
 params:
   author: James Kerr
   description: Thoughts about programming and the shared human experience.
+  # Your Buttondown username, from the "Form" URL in Settings → Embedding
+  # (https://buttondown.com/api/emails/embed-subscribe/YOUR-USERNAME).
+  # The subscribe form is hidden entirely while this is blank.
+  buttondown_username: "jameskerr"
   mastodon_url: https://mastodon.social/@jameskerr
   twitter_url: https://x.com/@specialCaseDev
   images:
