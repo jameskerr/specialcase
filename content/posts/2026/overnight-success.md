@@ -6,9 +6,9 @@ description: We never see all the years of hard work it took for people to have 
 
 We never see all the years of hard work it took for people to have their viral moment. It always takes time to do significant things. This is a good reminder for me.
 
-I heard it from typecraft today as he talked about his dark moments over the past few months. It was a refreshingly vulnerable video. He has acheived many of the same goals I have for myself like a growing a youtube channel, speaking at big conferences, and being known by big names in the Ruby/Tech world.
+I heard it from typecraft today as he talked about his dark moments over the past few months. It was a refreshingly vulnerable video. He has achieved many of the same goals I have for myself, like growing a YouTube channel, speaking at big conferences, and being known by big names in the Ruby and tech world.
 
-But listening to his confessions was a fresh reminder of the trap I'm often caught in — that the good life is "out there", or "when this thing finally happens."
+But listening to his confessions was a fresh reminder of the trap I'm often caught in — that the good life is "out there," or "when this thing finally happens."
 
 The truth is, it's always just right in front of me. Right now. The good and the bad of life are always here, no matter the amount of success.
 
