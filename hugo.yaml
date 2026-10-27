@@ -1,6 +1,6 @@
 baseURL: "https://www.jameskerr.blog/"
 languageCode: "en-us"
-title: jameskerr.blog
+title: James Kerr
 theme: blank
 pagerSize: 9999
 summaryLength: 20

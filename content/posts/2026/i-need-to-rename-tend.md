@@ -4,8 +4,6 @@ title: I need to rename Tend
 description: A trademark search killed the name of my budgeting app after three years. Now I'm hunting for a new one.
 ---
 
-I need to rename Tend.
-
 Tend is the name of the budgeting app I've been working on for the past 3 years. In fact, seeing the word Tend in a book somewhere was the spark that got me working on it in the first place. I saw the word, loved it, then found tend.cash as a domain name. I was holding my new daughter in the middle of the night as I bought the domain and felt a zing of excitement for what it could mean. It's been a great name. People loved it, I loved it. But its time is almost over.
 
 I paid $350 to apply for the trademark. I saw some other live marks, but they weren't using them in the market. Turns out, that doesn't matter to the examiner. They just check marks for likelihood of confusion. I would need to file a "hey you're not using this" document, then they get a chance to defend themselves. Too expensive.
