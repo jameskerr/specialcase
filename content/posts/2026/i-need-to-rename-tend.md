@@ -1,5 +1,5 @@
 ---
-date: 2026-10-26
+date: 2026-10-26T21:21:54-07:00
 title: I need to rename Tend
 description: A trademark search killed the name of my budgeting app after three years. Now I'm hunting for a new one.
 ---
